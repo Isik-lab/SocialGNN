@@ -2,7 +2,9 @@
 
 # Relational Visual Information explains Human Social Inference: A Graph Neural Network model for Social Interaction Recognition 
 
-The project is described in our paper <>
+The project is described in our paper
+
+### COMING SOON
 
 ## How to run this code?
 
