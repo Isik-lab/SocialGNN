@@ -1,0 +1,3 @@
+This repository contains human ratings on social interaction collected on the PHASE dataset. Details of the human experiment are given in our SocialGNN paper.
+"human_rating_labels_all": Main Set, distribution of ratings for 400 videos (+ 3 videos used in catch trials. These are denoted by "_mm" at the end of the video names)
+"human_rating_labels_all_genset": Generalization Set, distribution of ratings for 100 videos (+ 3 videos used in catch trials. These are denoted by "_mm" at the end of the video names)
