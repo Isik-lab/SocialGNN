@@ -11,45 +11,49 @@ This repository contains code to train and test our SocialGNN models (as well as
 P.S.: VisualRNN = CueBasedLSTM
 
 ## Conda Environment / Prerequisites
+- For macOS: 
+- For linux: 
 
-## Running SocialGNN on the PHASE standard set (400 videos)
+## How to Run the Code?
+
+#### Running SocialGNN on the PHASE standard set (400 videos)
 Please refer to our paper for the terminology used here and for changes in parameter settings.
-#### Getting Accuracy and Predicted Labels using Trained Models
+###### Getting Accuracy and Predicted Labels using Trained Models
   ```
   python get_accuracy_predictions_PHASE_mainset.py <bootstrap no> <model_to_test>
   
   Example:
   python get_accuracy_predictions_PHASE_mainset.py 3 SocialGNN_E
   ```
-#### Training (with bootstrapped train-test splits) SocialGNN or VisualRNN/CueBasedLSTM models
+###### Training (with bootstrapped train-test splits) SocialGNN or VisualRNN/CueBasedLSTM models
   ```
   python traintest_bootstrapsplits_PHASE_mainset.py <model_to_train>
   ```
-## Running SocialGNN on the PHASE generalization set (100 videos)
-#### Getting Accuracy using Trained Models
+#### Running SocialGNN on the PHASE generalization set (100 videos)
+###### Getting Accuracy using Trained Models
   ```
   python traintest_PHASE_genset.py test <model_to_test>
   
   Example:
   python traintest_PHASE_genset.py test SocialGNN_E
   ```
-#### Training SocialGNN or VisualRNN/CueBasedLSTM models
+###### Training SocialGNN or VisualRNN/CueBasedLSTM models
 ```
   python traintest_PHASE_genset.py train <model_to_train>
 ```
 
 
-## Running SocialGNN on the Gaze dataset
+#### Running SocialGNN on the Gaze dataset
 Set <prediction_type> to 2 for social v/s non-social classification; set to 5 for classifying into the 5 gaze labels
 
-#### Getting Accuracy (on all bootstrapped train-test splits) using Trained Models
+###### Getting Accuracy (on all bootstrapped train-test splits) using Trained Models
   ```
   python traintest_bootstrapsplits_Gaze.py test <model_to_test> <prediction_type>
   
   Example:
   python traintest_bootstrapsplits_Gaze.py test CueBasedLSTM-Relation 5
   ```
-#### Training SocialGNN or VisualRNN/CueBasedLSTM models
+###### Training SocialGNN or VisualRNN/CueBasedLSTM models
 ```
   python traintest_bootstrapsplits_Gaze.py train <model_to_train> <prediction_type>
 ```
