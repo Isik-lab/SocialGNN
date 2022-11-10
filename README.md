@@ -16,9 +16,10 @@ P.S.: VisualRNN = CueBasedLSTM
 - For Linux: To Be Added
 
 ## How to Run the Code?
+Please refer to our paper for the terminology used here and for changes in parameter settings.
 
 #### Running SocialGNN on the PHASE standard set (400 videos)
-Please refer to our paper for the terminology used here and for changes in parameter settings.
+
 ###### Getting Accuracy and Predicted Labels using Trained Models
   ```
   python get_accuracy_predictions_PHASE_mainset.py <bootstrap no> <model_to_test>
