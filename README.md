@@ -11,8 +11,9 @@ This repository contains code to train and test our SocialGNN models (as well as
 P.S.: VisualRNN = CueBasedLSTM
 
 ## Conda Environment / Prerequisites
-- For macOS: Conda Environment/condaenv_macbook_gnnEnv_Oct17_2022.yml
-- For linux: <to be added>
+- For macOS: 
+```Conda Environment/condaenv_macbook_gnnEnv_Oct17_2022.yml ```
+- For Linux: To Be Added
 
 ## How to Run the Code?
 
