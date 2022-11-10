@@ -6,6 +6,7 @@ The project is described in our paper titled "Relational Visual Information expl
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
+P.S.: VisualRNN = CueBasedLSTM
 
 ## How to run this code?
 
@@ -54,5 +55,8 @@ Set <prediction_type> to 2 for social v/s non-social classification; set to 5 fo
 ```
 
 ## Repository Components
+
+## To Be Added Soon
+- Data Preprocessing files
 
 ## Citation
