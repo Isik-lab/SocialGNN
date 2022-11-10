@@ -7,8 +7,7 @@ from collections import namedtuple
 ### LOAD DATA
 model_to_train = sys.argv[1]
 bootstrap_splits = 10
-#string = './TrainedModels/PHASE_mysplit_humanratings_Jul23_'
-string = "./TrainedModels/checkkk"
+string = './TrainedModels/PHASE_mysplit_humanratings_Jul23_'
 
 ## Get videos data (position, vel, landmark info etc and associated human rating labels)
 with open('./PHASE/Videos_humanratings', "rb") as f:
