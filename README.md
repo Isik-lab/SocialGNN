@@ -25,6 +25,33 @@ Please refer to our paper for the terminology used here and for changes in param
   python traintest_bootstrapsplits_PHASE_mainset.py <model_to_train>
   ```
 #### Running SocialGNN on the PHASE generalization set (100 videos)
+###### Getting Accuracy using Trained Models
+  ```
+  python traintest_PHASE_genset.py test <model_to_test>
+  
+  Example:
+  python traintest_PHASE_genset.py test SocialGNN_E
+  ```
+###### Training SocialGNN or VisualRNN/CueBasedLSTM models
+```
+  python traintest_PHASE_genset.py train <model_to_train>
+```
+
+
+#### Running SocialGNN on the Gaze dataset
+Set <prediction_type> to 2 for social v/s non-social classification; set to 5 for classifying into the 5 gaze labels
+
+###### Getting Accuracy (on all bootstrapped train-test splits) using Trained Models
+  ```
+  python traintest_bootstrapsplits_Gaze.py test <model_to_test> <prediction_type>
+  
+  Example:
+  python traintest_bootstrapsplits_Gaze.py test CueBasedLSTM-Relation 5
+  ```
+###### Training SocialGNN or VisualRNN/CueBasedLSTM models
+```
+  python traintest_bootstrapsplits_Gaze.py train <model_to_train> <prediction_type>
+```
 
 ## Repository Components
 
