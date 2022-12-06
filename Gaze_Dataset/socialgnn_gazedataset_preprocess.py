@@ -180,7 +180,7 @@ for i in range(video_start_id, video_start_id + no_videos_to_process):
        break
     k = list(D_dicts)[i]
     print("Video:",k)
-    video = cv2.VideoCapture('./Gaze_Dataset/video/' + str(k)+ '.mp4')
+    video = cv2.VideoCapture('./video/' + str(k)+ '.mp4')
     annotations = D_dicts[k]
 
     frames_features, frames_labels, frames_entities, frames_edges = frames_to_features_and_labels(annotations, video, pca, scaler)
