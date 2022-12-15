@@ -2,7 +2,7 @@
 
 # SocialGNN: A Graph Neural Network model for Social Interaction Recognition 
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) ![Progress](https://progress-bar.dev/75/?title=completed)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) ![Progress](https://progress-bar.dev/85/?title=completed)
 
 This project is described in our paper titled "Relational Visual Information explains Human Social Inference: A Graph Neural Network model for Social Interaction Recognition". [Link to Preprint](https://psyarxiv.com/5cuyr)
 
@@ -64,7 +64,6 @@ Set <prediction_type> to 2 for social v/s non-social classification; set to 5 fo
 
 ## To Be Added Soon
 - Data Preprocessing files
-- Gaze dataset processed bootstrap split files (too big for github)
 
 ## Citation
 ```
