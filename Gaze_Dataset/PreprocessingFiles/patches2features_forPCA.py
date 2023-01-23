@@ -7,7 +7,7 @@ from tensorflow.keras.preprocessing.image import smart_resize
 from tensorflow.keras.models import Model
 import sys
 
-with open('./PickleFiles/all_patches', 'rb') as file:
+with open('../preprocessed_pickles/all_patches', 'rb') as file:
     all_patches = pickle.load(file)
 
 i = int(sys.argv[1])
@@ -34,7 +34,7 @@ all_patches_reshaped = np.array(all_patches_reshaped)
 x = all_patches_reshaped
 y = model.predict(x)
 
-file_name = './PickleFiles/all_features_'+ str(i)
+file_name = '../preprocessed_pickles/all_features_'+ str(i)
 with open(file_name, 'wb') as file:
 	pickle.dump(y, file)
 

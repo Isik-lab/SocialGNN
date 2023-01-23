@@ -28,7 +28,7 @@ def load_annotations(path):
   return D_dicts
 
 
-path = './Gaze_Dataset/annotation_cleaned'
+path = '../annotation_cleaned'
 
 D_dicts = load_annotations(path)
 
@@ -39,7 +39,7 @@ def get_video_patches(dataset):
   all_patches = []
   for k,v in dataset.items():
     print("Video:",k)
-    video = cv2.VideoCapture('./Gaze_Dataset/video/' + str(k)+ '.mp4')
+    video = cv2.VideoCapture('../video/' + str(k)+ '.mp4')
     annotations = v
 
     print("annotation keys", list(annotations.keys())[-1], len(annotations.keys()))
@@ -72,5 +72,5 @@ all_patches = get_video_patches(out)
 
 print(len(all_patches))
 
-with open('./PickleFiles/all_patches', 'wb') as file:
+with open('../preprocessed_pickles/all_patches_check', 'wb') as file:
     pickle.dump(all_patches, file)

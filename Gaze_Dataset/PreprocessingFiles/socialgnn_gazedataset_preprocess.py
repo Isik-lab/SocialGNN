@@ -13,7 +13,7 @@ import sys
 
 video_start_id = int(sys.argv[1])
 no_videos_to_process = 100
-path = './Gaze_Dataset/annotation_cleaned'
+path = '../annotation_cleaned'
 n_videos = len(os.listdir(path))
 
 D = []
@@ -168,7 +168,7 @@ import itertools
 import pickle
 out = D_dicts #dict(itertools.islice(D_dicts.items(), 2)) 
 
-with open('./PickleFiles/fitted_PCA', "rb") as f:
+with open('../preprocessed_pickles/fitted_PCA', "rb") as f:
   pca = pickle.load(f)
   scaler = pickle.load(f)
 
@@ -180,7 +180,7 @@ for i in range(video_start_id, video_start_id + no_videos_to_process):
        break
     k = list(D_dicts)[i]
     print("Video:",k)
-    video = cv2.VideoCapture('./Gaze_Dataset/video/' + str(k)+ '.mp4')
+    video = cv2.VideoCapture('../video/' + str(k)+ '.mp4')
     annotations = D_dicts[k]
 
     frames_features, frames_labels, frames_entities, frames_edges = frames_to_features_and_labels(annotations, video, pca, scaler)
@@ -204,7 +204,7 @@ for i in range(video_start_id, video_start_id + no_videos_to_process):
     V[k] = {"graph_dicts": graphs_allsequences, "sequences": sequences, "labels": labels}
 
 
-f_name = './GazePickleFiles/processed_Mar25_'+ str(video_start_id)
+f_name = '../preprocessed_pickles/processed_Mar25_'+ str(video_start_id)
 with open(f_name, 'wb') as file:
     pickle.dump(V, file)
 

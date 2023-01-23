@@ -5,7 +5,7 @@ import numpy as np
 
 all_features = []
 for i in range(0,300000,10000):
-	f_name = './PickleFiles/all_features_'+ str(i)
+	f_name = '../preprocessed_pickles/all_features_'+ str(i)
 	with open(f_name, "rb") as f:
 		temp = pickle.load(f)
 		all_features.extend(temp)
@@ -20,7 +20,7 @@ scaler = StandardScaler()
 all_features_scaled = scaler.fit_transform(all_features)
 pca.fit(all_features_scaled)
 
-with open('./PickleFiles/fitted_PCA', "wb") as f:
+with open('../preprocessed_pickles/fitted_PCA', "wb") as f:
 	pickle.dump(pca,f)
 	pickle.dump(scaler,f)
 
