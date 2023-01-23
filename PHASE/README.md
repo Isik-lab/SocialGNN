@@ -2,7 +2,7 @@ The original videos and annotations can be requested from here: [Link](https://t
 
 Preprocessed annotations and bootstrapped train/test split IDs for the main set are given here as pickle files.
 
-###### To Trim and Preprocess Yourself
+#### To Trim and Preprocess Again
   ```
   python trim_and_preprocess.py <main/genset>
   ```
