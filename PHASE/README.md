@@ -1,9 +1,9 @@
-The original videos and annotations can be requested from here: LINK
+The original videos and annotations can be requested from here: [Link](https://tshu.io/PHASE/)
 
-Files after preprocessing can be found here: LINK (contains the folders: "preprocessed_pickles" and "bootstrapped_traintest_splits_pickles")
+Preprocessed annotations and bootstrapped train/test split IDs for the main set are given here as pickle files.
 
-###### Trim and Preprocess Videos
+###### To Trim and Preprocess Yourself
   ```
-  python trim_and_preprocess.py main (or genset)
-  
+  python trim_and_preprocess.py <main/genset>
   ```
+Then create bootstrapped splits of train/test video IDs for analysis with the main set.
