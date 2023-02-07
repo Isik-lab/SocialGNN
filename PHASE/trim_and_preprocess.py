@@ -1,3 +1,4 @@
+# load environment gnnEnv2
 from moviepy.editor import *
 import pickle
 import numpy as np
@@ -11,11 +12,15 @@ if arg == "genset":
   in_path = './original_dataset_files/test'                    #original videos and pickle files
   file1 = 'Videos_Test_humanratings'
   file2 = 'genset_video_motionstop_t'
+  with open('Human_Experiment_Files/human_rating_labels_genset', 'rb') as hr_file:
+    humanratings = pickle.load(hr_file)
 else:
   out_path = './media_trimmed'    #videos trimmed to motion stop
   in_path = './original_dataset_files/train'                    #original videos and pickle files
   file1 = 'Videos_humanratings'
   file2 = 'video_motionstop_t'
+  with open('Human_Experiment_Files/human_rating_labels', 'rb') as hr_file:
+    humanratings = pickle.load(hr_file)
 
 Videos = []
 for root, dirs, files, in os.walk(in_path):
@@ -32,11 +37,18 @@ for root, dirs, files, in os.walk(in_path):
       v['entity_color_code'] = open_f_data['entity_color_code']
       v['physical_goals'] = open_f_data['goals']
       v['wall_segs'] = open_f_data['wall_segs']
-      v['social_goals'] = open_f_data['modes']
       v['landmark_centers'] = open_f_data['landmark_centers']
+
+      v['social_goals'] = humanratings[v['name']]['relationship']
 
       Videos.append(v)
 
+from collections import Counter
+print(Videos[0]['landmark_centers'])
+print(Videos[0]['entity_color_code'])
+print(Videos[0]['entity_sizes'])
+print(Videos[0]['wall_segs'])
+print(a)
 # Averaging over every 5 trajectory steps
 for v in range(len(Videos)):
   traj_v = []
@@ -49,7 +61,6 @@ for v in range(len(Videos)):
     traj_avgsteps = np.mean(temp.reshape(-1, 5, 5), axis=1)   #further steps trajectory average over 5
     traj_v.append(np.concatenate((np.expand_dims(init,0),traj_avgsteps)))
   Videos[v]['trajectories'] = traj_v
-
 
 ### Get Motion Stop Time for Each Video
 videos_motionstop_all = {}
