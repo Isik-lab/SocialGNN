@@ -43,12 +43,6 @@ for root, dirs, files, in os.walk(in_path):
 
       Videos.append(v)
 
-from collections import Counter
-print(Videos[0]['landmark_centers'])
-print(Videos[0]['entity_color_code'])
-print(Videos[0]['entity_sizes'])
-print(Videos[0]['wall_segs'])
-print(a)
 # Averaging over every 5 trajectory steps
 for v in range(len(Videos)):
   traj_v = []
