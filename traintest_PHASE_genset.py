@@ -15,22 +15,23 @@ parser.add_argument('--context_info', help="True/False", type=lambda x: bool(str
 parser.add_argument('--save_predictions', help="True/False", type=lambda x: bool(strtobool(x)), default = False)
 
 args = parser.parse_args()
-timestr = time.strftime("%Y%m%d-%H%M")
+timestr = time.strftime("%Y%m%d")
 
 if args.mode == "train":
-  model_string = './TrainedModels/PHASE_originalsplit_context'+ str(args.context_info) + '_' + timestr
+  model_string = './TrainedModels/PHASE_originalsplit_context'+ str(args.context_info) + '_' + timestr + '_'
 elif args.mode == "test":
   save_predictions = args.save_predictions
-  ''' #ideally uncomment the next two lines and comment other lines in this block
-  train_datetime = 
-  model_string = './TrainedModels/PHASE_originalsplit_context'+ args.context_info + '_' + train_datetime
+  #ideally uncomment the next two lines and comment other lines in this block
+  train_datetime = '20230502'
+  model_string = './TrainedModels/PHASE_originalsplit_context'+ str(args.context_info) + '_' + train_datetime + '_'
+  model_string = './TrainedModels/PHASE_originalsplit_withcontext_20230502-1601_'
   '''
   if args.context_info ==True:
     #string = './TrainedModels/PHASE_originalsplit_withcontext_' + timestr + '_' 
     string = './TrainedModels/PHASE_originalsplit_withcontext_June28_'
   else:
     string = './TrainedModels/PHASE_originalsplit_May5_' #without context, also need to toggle use_globals
-
+  '''
 ### LOAD TRAIN DATA
 ## Get videos data (position, vel, landmark info etc and associated human rating labels)
 with open('./PHASE/Videos_humanratings', "rb") as f:
@@ -133,8 +134,8 @@ elif args.mode == "train" or args.mode == "test":
     model_config = namedtuple('model_config', 'NUM_NODES NUM_AGENTS V_SPATIAL_SIZE E_SPATIAL_SIZE V_TEMPORAL_SIZE V_OUTPUT_SIZE BATCH_SIZE CLASS_WEIGHTS LEARNING_RATE LAMBDA')
     sample_graph_dicts_list, _, _ = get_inputs_outputs(Videos[:20])
 
-    C = model_config(NUM_NODES = 4, NUM_AGENTS = 4, V_SPATIAL_SIZE = 64, E_SPATIAL_SIZE = 64, V_TEMPORAL_SIZE = 16, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
-    N_EPOCHS = 150
+    C = model_config(NUM_NODES = 4, NUM_AGENTS = 4, V_SPATIAL_SIZE = 16, E_SPATIAL_SIZE = 16, V_TEMPORAL_SIZE = 6, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
+    N_EPOCHS = 3
     model = SocialGNN(Videos, C, args.context_info, sample_graph_dicts_list)
     model._initialize_session()
     
@@ -143,9 +144,9 @@ elif args.mode == "train" or args.mode == "test":
       print("Train Acc:",model.test(test_data_idx=X_train, mapping=mapping))
       print("Test Acc:",model.test(test_data_idx=X_test, mapping=mapping))
 
-      model.save_model(string + args.model_name)
+      model.save_model(model_string + args.model_name)
     else:
-      model.load_model(string + args.model_name)
+      model.load_model(model_string + args.model_name)
       accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = True)
       print("Test Acc:",accuracy)
 
@@ -154,7 +155,7 @@ elif args.mode == "train" or args.mode == "test":
       PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
       
       if save_predictions:
-        with open('./Outputs/Predictions/' + string[16:] + args.model_name + '_' + timestr, "wb") as f:
+        with open('./Outputs/Predictions/' + model_string[16:] + args.model_name + '_' + timestr, "wb") as f:
           pickle.dump(TL, f)
           pickle.dump(PL, f)
       
@@ -163,8 +164,8 @@ elif args.mode == "train" or args.mode == "test":
     model_config = namedtuple('model_config', 'NUM_NODES MAX_EDGES E_SPATIAL_SIZE E_TEMPORAL_SIZE E_OUTPUT_SIZE BATCH_SIZE CLASS_WEIGHTS LEARNING_RATE LAMBDA')
     sample_graph_dicts_list, _, _ = get_inputs_outputs(Videos[:20])
 
-    C = model_config(NUM_NODES = 4, MAX_EDGES = 12, E_SPATIAL_SIZE = 64, E_TEMPORAL_SIZE = 16, E_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
-    N_EPOCHS = 150
+    C = model_config(NUM_NODES = 4, MAX_EDGES = 12, E_SPATIAL_SIZE = 16, E_TEMPORAL_SIZE = 6, E_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
+    N_EPOCHS = 3
     model = SocialGNN_E(Videos, C, args.context_info, sample_graph_dicts_list)
     model._initialize_session()
     
@@ -173,9 +174,9 @@ elif args.mode == "train" or args.mode == "test":
       print("Train Acc:",model.test(test_data_idx=X_train, mapping=mapping))
       print("Test Acc:",model.test(test_data_idx=X_test, mapping=mapping))
 
-      model.save_model(string + args.model_name)
+      model.save_model(model_string + args.model_name)
     else:
-      model.load_model(string + args.model_name)
+      model.load_model(model_string + args.model_name)
       accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = True)
       print("Test Acc:",accuracy)
       
@@ -184,7 +185,7 @@ elif args.mode == "train" or args.mode == "test":
       PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
       
       if save_predictions:
-        with open('./Outputs/Predictions/' + string[16:] + args.model_name + '_' + timestr, "wb") as f:
+        with open('./Outputs/Predictions/' + model_string[16:] + args.model_name + '_' + timestr, "wb") as f:
           pickle.dump(TL, f)
           pickle.dump(PL, f)
     
@@ -200,7 +201,7 @@ elif args.mode == "train" or args.mode == "test":
       e = True
       
     C = model_config(FEATURE_SIZE = f_size, V_TEMPORAL_SIZE = 16, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.01 )
-    N_EPOCHS = 150
+    N_EPOCHS = 3
     model = CueBasedLSTM(Videos, C, args.context_info, explicit_edges = e)
     model._initialize_session()
     
@@ -209,10 +210,9 @@ elif args.mode == "train" or args.mode == "test":
       print("Train Acc:",model.test(test_data_idx=X_train, mapping=mapping))
       print("Test Acc:",model.test(test_data_idx=X_test, mapping=mapping))
 
-      model.save_model(string + args.model_name)
+      model.save_model(model_string + args.model_name)
     else:
-      print(string + args.model_name)
-      model.load_model(string + args.model_name)
+      model.load_model(model_string + args.model_name)
       accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = True)
       print("Test Acc:",accuracy)
 
@@ -221,7 +221,7 @@ elif args.mode == "train" or args.mode == "test":
       PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
       
       if save_predictions:
-        with open('./Outputs/Predictions/' + string[16:] + args.model_name + '_' + timestr, "wb") as f:
+        with open('./Outputs/Predictions/' + model_string[16:] + args.model_name + '_' + timestr, "wb") as f:
           pickle.dump(TL, f)
           pickle.dump(PL, f)
 

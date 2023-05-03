@@ -455,12 +455,13 @@ class SocialGNN(object):
 
 ### SocialGNN E_Pred Model
 class SocialGNN_E(object):
-  def __init__(self, dataset, config, context_info, sample_graph_dicts_list):
+  def __init__(self, dataset, config, context_info, sample_graph_dicts_list, ablate = False):
     self.graph = tf.Graph()
 
     self.dataset = dataset
     self.config = config  #define model parameters
     self.context_info = context_info
+    self.ablate = ablate
 
     with self.graph.as_default():
       self._define_inputs(sample_graph_dicts_list)
@@ -513,8 +514,10 @@ class SocialGNN_E(object):
 
     x_padded = tf.reshape(filtered_logits, [-1,self.config.MAX_EDGES, self.config.E_SPATIAL_SIZE] ) #n_graphs x 12 possible edges x 5 dim edgefeatures
     #print(x_padded.shape)
-    #x_padded_sliced = tf.reshape(tf.gather(x_padded,indices=[0,3], axis=1),[-1,2*self.config.E_SPATIAL_SIZE] )
-    x_padded_sliced = tf.reshape(tf.gather(x_padded,indices=[0,1,2,3,4,5,6,7,8,9,10,11], axis=1),[-1,12*self.config.E_SPATIAL_SIZE] )
+    if self.ablate:
+      x_padded_sliced = tf.reshape(tf.gather(x_padded,indices=[0,3], axis=1),[-1,2*self.config.E_SPATIAL_SIZE] )
+    else:
+      x_padded_sliced = tf.reshape(tf.gather(x_padded,indices=[0,1,2,3,4,5,6,7,8,9,10,11], axis=1),[-1,12*self.config.E_SPATIAL_SIZE] )
     #print(x_padded_sliced.shape)
     x_final = tf.RaggedTensor.from_row_lengths(x_padded_sliced,row_lengths=self.videos_timesteps_placeholder) #separate videowise timesteps
 
