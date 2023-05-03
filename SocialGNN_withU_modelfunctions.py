@@ -153,7 +153,7 @@ def create_graphs_1video_1t(n_entities,t, trajectories, entity_sizes, wall_segs,
     u = np.float32(np.append(u, landmark_centers).flatten())
 
     #create graph
-    graph_dict = {"nodes": nodes, "senders": senders, "receivers": receivers, "globals": u}  #No edge features or global features
+    graph_dict = {"nodes": nodes, "senders": senders, "receivers": receivers, "globals": u}  #No edge features 
     return graph_dict
 
 # Create graph dicts from a set of Input videos (graphs for all timesteps of all videos)
@@ -204,11 +204,12 @@ def get_edges_boolean(Gin, E_SPATIAL_SIZE):
 ### SocialGNN V_Pred MODEL
 
 class SocialGNN(object):
-  def __init__(self, dataset, config, sample_graph_dicts_list):
+  def __init__(self, dataset, config, context_info, sample_graph_dicts_list):
     self.graph = tf.Graph()
 
     self.dataset = dataset
     self.config = config  #define model parameters
+    self.context_info = context_info
 
     with self.graph.as_default():
       self._define_inputs(sample_graph_dicts_list)
@@ -237,7 +238,7 @@ class SocialGNN(object):
     print("\n.............BUILDING GRAPH..............")
     #########   Define Layers/Blocks    #########
     Gspatial_edges = gn.blocks.EdgeBlock(edge_model_fn=lambda: snt.Linear(self.config.E_SPATIAL_SIZE), use_globals=False, use_edges = False)   #no edge attributes used #n_edges(unequal) x timesteps(101/61) x n_videos(20)
-    Gspatial_nodes = gn.blocks.NodeBlock(node_model_fn=lambda: snt.nets.MLP([self.config.V_SPATIAL_SIZE]), use_globals=True)   #REVISIT #n_nodes(4)x timesteps(101/61) x n_videos(20)
+    Gspatial_nodes = gn.blocks.NodeBlock(node_model_fn=lambda: snt.nets.MLP([self.config.V_SPATIAL_SIZE]), use_globals=self.context_info)   #REVISIT #n_nodes(4)x timesteps(101/61) x n_videos(20)
     Gtemporal_nodes = snt.LSTM(hidden_size=self.config.V_TEMPORAL_SIZE)
     classifier_nodes = snt.Linear(self.config.V_OUTPUT_SIZE)
 
@@ -454,11 +455,12 @@ class SocialGNN(object):
 
 ### SocialGNN E_Pred Model
 class SocialGNN_E(object):
-  def __init__(self, dataset, config, sample_graph_dicts_list):
+  def __init__(self, dataset, config, context_info, sample_graph_dicts_list):
     self.graph = tf.Graph()
 
     self.dataset = dataset
     self.config = config  #define model parameters
+    self.context_info = context_info
 
     with self.graph.as_default():
       self._define_inputs(sample_graph_dicts_list)
@@ -487,7 +489,7 @@ class SocialGNN_E(object):
   def _build_graph(self):
     print("\n.............BUILDING GRAPH..............")
     #########   Define Layers/Blocks    #########
-    Gspatial_edges = gn.blocks.EdgeBlock(edge_model_fn=lambda: snt.Linear(self.config.E_SPATIAL_SIZE), use_globals=False, use_edges = False)   #no edge attributes used #n_edges(unequal) x timesteps(101/61) x n_videos(20)
+    Gspatial_edges = gn.blocks.EdgeBlock(edge_model_fn=lambda: snt.Linear(self.config.E_SPATIAL_SIZE), use_globals=self.context_info, use_edges = False)   #no edge attributes used #n_edges(unequal) x timesteps(101/61) x n_videos(20)
     Gtemporal_edges = snt.LSTM(hidden_size=self.config.E_TEMPORAL_SIZE)  #https://github.com/deepmind/graph_nets/issues/52 GN doesnt support recurrent locks yet..
     classifier_edges = snt.Linear(self.config.E_OUTPUT_SIZE)
 
@@ -495,7 +497,6 @@ class SocialGNN_E(object):
 
     #########   Spatial: Nodes & Edges    #########
     G_E = Gspatial_edges(self.Gin_placeholder)
-    #print("GE", G_E.edges.shape)
 
     #########   Temporal Edges    #########
     idx_keep = tf.where(self.edges_boolean)[:,-1]
@@ -725,12 +726,13 @@ class SocialGNN_E(object):
 ### Baseline: Cue-based LSTM Model
 
 class CueBasedLSTM(object):
-  def __init__(self, dataset, config, explicit_edges=False):
+  def __init__(self, dataset, config, context_info = False, explicit_edges=False):
     self.graph = tf.Graph()
 
     self.dataset = dataset
     self.config = config  #define model parameters
     self.explicit_edges = explicit_edges
+    self.context_info = context_info
 
     with self.graph.as_default():
       self._define_inputs()
@@ -795,7 +797,7 @@ class CueBasedLSTM(object):
             batch = np.append(batch, batch[0])
 
         # get X_train and Y_train from dataset + train_idx
-        X, input_videos_timesteps, input_labels_social = get_inputs_outputs_baseline(np.array(self.dataset)[batch], self.explicit_edges)
+        X, input_videos_timesteps, input_labels_social = get_inputs_outputs_baseline(np.array(self.dataset)[batch], self.explicit_edges, self.context_info)
         if ground_truth == 'human_ratings':
           input_labels = [mapping[x] for x in input_labels_social]
         else:
@@ -844,7 +846,7 @@ class CueBasedLSTM(object):
           batch = np.append(batch, batch[0])
 
       # Get input
-      X, input_videos_timesteps, input_labels_social = get_inputs_outputs_baseline(np.array(self.dataset)[batch], self.explicit_edges)
+      X, input_videos_timesteps, input_labels_social = get_inputs_outputs_baseline(np.array(self.dataset)[batch], self.explicit_edges, self.context_info)
       if ground_truth == 'human_ratings':
           input_labels = [mapping[x] for x in input_labels_social]
       else:
@@ -897,7 +899,7 @@ class CueBasedLSTM(object):
           batch = np.append(batch, batch[0])
 
       # Get input
-      X, input_videos_timesteps, input_labels_social = get_inputs_outputs_baseline(np.array(self.dataset)[batch], self.explicit_edges)
+      X, input_videos_timesteps, input_labels_social = get_inputs_outputs_baseline(np.array(self.dataset)[batch], self.explicit_edges, self.context_info)
       if ground_truth == 'human_ratings':
           input_labels = [mapping[x] for x in input_labels_social]
       else:
@@ -950,7 +952,7 @@ class CueBasedLSTM(object):
     load_saver.restore(self.sess,tf.train.latest_checkpoint(C_string))
 
 
-def get_inputs_outputs_baseline(InpVideos, explicit_edges=False):
+def get_inputs_outputs_baseline(InpVideos, explicit_edges=False, context_info = True):
   X = []
   video_timesteps = []
   labels_social = []
@@ -991,13 +993,14 @@ def get_inputs_outputs_baseline(InpVideos, explicit_edges=False):
       
       
       #global variable
-      wall_segs = InpVideos[v]['wall_segs']
-      wall_segs_pos = [[(0.,0.),(0.,0.)],[(0.,0.),(0.,0.)],[(0.,0.),(0.,0.)],[(0.,0.),(0.,0.)]]
-      for j in range(len(wall_segs)):
-        wall_segs_pos[j]=wall_segs[j]
-      u = np.float32(np.array(wall_segs_pos).flatten())
-      u = np.float32(np.append(u, InpVideos[v]['landmark_centers']).flatten())
-      nodes.extend(u)  
+      if context_info == True:
+        wall_segs = InpVideos[v]['wall_segs']
+        wall_segs_pos = [[(0.,0.),(0.,0.)],[(0.,0.),(0.,0.)],[(0.,0.),(0.,0.)],[(0.,0.),(0.,0.)]]
+        for j in range(len(wall_segs)):
+          wall_segs_pos[j]=wall_segs[j]
+        u = np.float32(np.array(wall_segs_pos).flatten())
+        u = np.float32(np.append(u, InpVideos[v]['landmark_centers']).flatten())
+        nodes.extend(u)  
       
 
       X.append(nodes)

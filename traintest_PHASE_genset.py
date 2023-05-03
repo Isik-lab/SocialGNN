@@ -4,10 +4,32 @@ import pickle
 import numpy as np
 from collections import namedtuple, Counter
 from sklearn.model_selection import ParameterGrid
+import time
+import argparse
+from distutils.util import strtobool
 
-model_to_train = sys.argv[1]
-string = './TrainedModels/PHASE_originalsplit_withcontext_June28_'
-mode = "test"
+parser = argparse.ArgumentParser()
+parser.add_argument('--mode', help="train/test/hyperparameter_tune", type= str)
+parser.add_argument('--model_name', help="SocialGNN_V/SocialGNN_E/CueBasedLSTM/CueBasedLSTM-Relation", type= str)
+parser.add_argument('--context_info', help="True/False", type=lambda x: bool(strtobool(x)))
+parser.add_argument('--save_predictions', help="True/False", type=lambda x: bool(strtobool(x)), default = False)
+
+args = parser.parse_args()
+timestr = time.strftime("%Y%m%d-%H%M")
+
+if args.mode == "train":
+  model_string = './TrainedModels/PHASE_originalsplit_context'+ str(args.context_info) + '_' + timestr
+elif args.mode == "test":
+  save_predictions = args.save_predictions
+  ''' #ideally uncomment the next two lines and comment other lines in this block
+  train_datetime = 
+  model_string = './TrainedModels/PHASE_originalsplit_context'+ args.context_info + '_' + train_datetime
+  '''
+  if args.context_info ==True:
+    #string = './TrainedModels/PHASE_originalsplit_withcontext_' + timestr + '_' 
+    string = './TrainedModels/PHASE_originalsplit_withcontext_June28_'
+  else:
+    string = './TrainedModels/PHASE_originalsplit_May5_' #without context, also need to toggle use_globals
 
 ### LOAD TRAIN DATA
 ## Get videos data (position, vel, landmark info etc and associated human rating labels)
@@ -31,7 +53,7 @@ y_test = [Videos[v]['social_goals'] for v in X_test]
 mapping = {'friendly':(1,0,0), 'neutral': (0,1,0), 'adversarial': (0,0,1)}
 
 
-if mode == "hyperparameter_tune":
+if args.mode == "hyperparameter_tune":
 
   def get_model_config(model_config, specific_params = None, model_to_tune = "SocialGNN_V"):
     if model_to_tune == "SocialGNN_V":
@@ -60,7 +82,7 @@ if mode == "hyperparameter_tune":
         C = C._replace(V_TEMPORAL_SIZE = v)
     return C
 
-  if model_to_train == "SocialGNN_V":
+  if args.model_name == "SocialGNN_V":
     print("\n.............HYPER-PARAMETER TUNING..............")
     param = {"V_param" : [(12,6), (64,16)], "lr_param": [1e-3, 5e-3, 1e-2, 5e-2], "reg_param": [0.01, 0.05, 0.1]}
 
@@ -74,7 +96,7 @@ if mode == "hyperparameter_tune":
       print("\n\n",combination)
       C = get_model_config(model_config, combination)
       N_EPOCHS = 150
-      model = SocialGNN(Videos, C, sample_graph_dicts_list)
+      model = SocialGNN(Videos, C, args.context_info, sample_graph_dicts_list)
       model._initialize_session()
       scores['cross_val'].append(model.cross_validate(5,N_EPOCHS, X_train, y_train, mapping))
       scores['entire_trainset'].append(model.test(test_data_idx=X_train, mapping=mapping))
@@ -83,7 +105,7 @@ if mode == "hyperparameter_tune":
     for i,combination in enumerate(C_paramgrid):
       print(combination, scores['cross_val'][i], scores['entire_trainset'][i])
 
-  elif model_to_train == "CueBasedLSTM":
+  elif args.model_name == "CueBasedLSTM":
     print("\n.............HYPER-PARAMETER TUNING..............")
     param = {"LSTM_size" : [6, 16, 64], "lr_param": [1e-3, 5e-3, 1e-2, 5e-2], "reg_param": [0.01, 0.05, 0.1]}
 
@@ -105,25 +127,25 @@ if mode == "hyperparameter_tune":
     for i,combination in enumerate(C_paramgrid):
       print(combination, scores['cross_val'][i], scores['entire_trainset'][i])
 
-elif mode == "train" or mode == "test":
+elif args.mode == "train" or args.mode == "test":
 
-  if model_to_train == "SocialGNN_V":
+  if args.model_name == "SocialGNN_V":
     model_config = namedtuple('model_config', 'NUM_NODES NUM_AGENTS V_SPATIAL_SIZE E_SPATIAL_SIZE V_TEMPORAL_SIZE V_OUTPUT_SIZE BATCH_SIZE CLASS_WEIGHTS LEARNING_RATE LAMBDA')
     sample_graph_dicts_list, _, _ = get_inputs_outputs(Videos[:20])
 
     C = model_config(NUM_NODES = 4, NUM_AGENTS = 4, V_SPATIAL_SIZE = 64, E_SPATIAL_SIZE = 64, V_TEMPORAL_SIZE = 16, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
     N_EPOCHS = 150
-    model = SocialGNN(Videos, C, sample_graph_dicts_list)
+    model = SocialGNN(Videos, C, args.context_info, sample_graph_dicts_list)
     model._initialize_session()
     
-    if mode == "train":
+    if args.mode == "train":
       print("Cross Val Score:",model.cross_validate(5,N_EPOCHS, X_train, y_train, mapping))
       print("Train Acc:",model.test(test_data_idx=X_train, mapping=mapping))
       print("Test Acc:",model.test(test_data_idx=X_test, mapping=mapping))
 
-      model.save_model(string + model_to_train)
+      model.save_model(string + args.model_name)
     else:
-      model.load_model(string + model_to_train)
+      model.load_model(string + args.model_name)
       accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = True)
       print("Test Acc:",accuracy)
 
@@ -131,28 +153,29 @@ elif mode == "train" or mode == "test":
       TL = {Videos[X_test[i]]['name']:inv_mapping[true_labels[i]] for i in range(len(true_labels))}
       PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
       
-      with open('./Outputs/Predictions/' + string[16:] + model_to_train, "wb") as f:
-        pickle.dump(TL, f)
-        pickle.dump(PL, f)
-
+      if save_predictions:
+        with open('./Outputs/Predictions/' + string[16:] + args.model_name + '_' + timestr, "wb") as f:
+          pickle.dump(TL, f)
+          pickle.dump(PL, f)
+      
     
-  elif model_to_train == "SocialGNN_E":
+  elif args.model_name == "SocialGNN_E":
     model_config = namedtuple('model_config', 'NUM_NODES MAX_EDGES E_SPATIAL_SIZE E_TEMPORAL_SIZE E_OUTPUT_SIZE BATCH_SIZE CLASS_WEIGHTS LEARNING_RATE LAMBDA')
     sample_graph_dicts_list, _, _ = get_inputs_outputs(Videos[:20])
 
     C = model_config(NUM_NODES = 4, MAX_EDGES = 12, E_SPATIAL_SIZE = 64, E_TEMPORAL_SIZE = 16, E_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
     N_EPOCHS = 150
-    model = SocialGNN_E(Videos, C, sample_graph_dicts_list)
+    model = SocialGNN_E(Videos, C, args.context_info, sample_graph_dicts_list)
     model._initialize_session()
     
-    if mode == "train":
+    if args.mode == "train":
       print("Cross Val Score:",model.cross_validate(5,N_EPOCHS, X_train, y_train, mapping))
       print("Train Acc:",model.test(test_data_idx=X_train, mapping=mapping))
       print("Test Acc:",model.test(test_data_idx=X_test, mapping=mapping))
 
-      model.save_model(string + model_to_train)
+      model.save_model(string + args.model_name)
     else:
-      model.load_model(string + model_to_train)
+      model.load_model(string + args.model_name)
       accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = True)
       print("Test Acc:",accuracy)
       
@@ -160,27 +183,36 @@ elif mode == "train" or mode == "test":
       TL = {Videos[X_test[i]]['name']:inv_mapping[true_labels[i]] for i in range(len(true_labels))}
       PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
       
-      with open('./Outputs/Predictions/' + string[16:] + model_to_train, "wb") as f:
-        pickle.dump(TL, f)
-        pickle.dump(PL, f)
+      if save_predictions:
+        with open('./Outputs/Predictions/' + string[16:] + args.model_name + '_' + timestr, "wb") as f:
+          pickle.dump(TL, f)
+          pickle.dump(PL, f)
     
-  elif model_to_train == "CueBasedLSTM":
+  elif args.model_name == "CueBasedLSTM" or args.model_name == "CueBasedLSTM-Relation":
     #CueBasedLSTM-Relation: set 28-->40 explicit_edges=True, and output file name append -Relation
     model_config = namedtuple('model_config', 'FEATURE_SIZE V_TEMPORAL_SIZE V_OUTPUT_SIZE BATCH_SIZE CLASS_WEIGHTS LEARNING_RATE LAMBDA')
 
-    C = model_config(FEATURE_SIZE = 52, V_TEMPORAL_SIZE = 16, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.01 )
+    if args.model_name == "CueBasedLSTM":
+      f_size = 52 if args.context_info==True else 28
+      e = False
+    else:
+      f_size = 64 if args.context_info==True else 40
+      e = True
+      
+    C = model_config(FEATURE_SIZE = f_size, V_TEMPORAL_SIZE = 16, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.01 )
     N_EPOCHS = 150
-    model = CueBasedLSTM(Videos, C)
+    model = CueBasedLSTM(Videos, C, args.context_info, explicit_edges = e)
     model._initialize_session()
     
-    if mode == "train":
+    if args.mode == "train":
       print("Cross Val Score:",model.cross_validate(5,N_EPOCHS, X_train, y_train, mapping))
       print("Train Acc:",model.test(test_data_idx=X_train, mapping=mapping))
       print("Test Acc:",model.test(test_data_idx=X_test, mapping=mapping))
 
-      model.save_model(string + model_to_train)
+      model.save_model(string + args.model_name)
     else:
-      model.load_model(string + model_to_train)
+      print(string + args.model_name)
+      model.load_model(string + args.model_name)
       accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = True)
       print("Test Acc:",accuracy)
 
@@ -188,7 +220,8 @@ elif mode == "train" or mode == "test":
       TL = {Videos[X_test[i]]['name']:inv_mapping[true_labels[i]] for i in range(len(true_labels))}
       PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
       
-      with open('./Outputs/Predictions/' + string[16:] + model_to_train, "wb") as f:
-        pickle.dump(TL, f)
-        pickle.dump(PL, f)
+      if save_predictions:
+        with open('./Outputs/Predictions/' + string[16:] + args.model_name + '_' + timestr, "wb") as f:
+          pickle.dump(TL, f)
+          pickle.dump(PL, f)
 
