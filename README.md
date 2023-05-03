@@ -35,14 +35,12 @@ Please refer to our paper for the terminology used here and for changes in param
 #### Running SocialGNN on the PHASE generalization set (100 videos)
 ###### Getting Accuracy using Trained Models
   ```
-  python traintest_PHASE_genset.py test <model_to_test>
+  python traintest_PHASE_genset.py --mode=test --model_name=SocialGNN_E --context_info=True
   
-  Example:
-  python traintest_PHASE_genset.py test SocialGNN_E
   ```
 ###### Training SocialGNN or VisualRNN/CueBasedLSTM models
 ```
-  python traintest_PHASE_genset.py train <model_to_train>
+  python traintest_PHASE_genset.py --mode=train --model_name=SocialGNN_E --context_info=True
 ```
 
 
