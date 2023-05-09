@@ -23,14 +23,11 @@ Please refer to our paper for the terminology used here and for changes in param
 
 ###### Getting Accuracy and Predicted Labels using Trained Models
   ```
-  python get_accuracy_predictions_PHASE_mainset.py <bootstrap no> <model_to_test>
-  
-  Example:
-  python get_accuracy_predictions_PHASE_mainset.py 3 SocialGNN_E
+  python get_accuracy_predictions_PHASE_mainset.py --model_name="SocialGNN_V" --bootstrap_no=0 --context_info=True
   ```
 ###### Training (with bootstrapped train-test splits) SocialGNN or VisualRNN/CueBasedLSTM models
   ```
-  python traintest_bootstrapsplits_PHASE_mainset.py <model_to_train>
+  python traintest_bootstrapsplits_PHASE_mainset.py --model_name="SocialGNN_V" --context_info=True
   ```
 #### Running SocialGNN on the PHASE generalization set (100 videos)
 ###### Getting Accuracy using Trained Models
