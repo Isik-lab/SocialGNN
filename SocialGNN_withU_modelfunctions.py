@@ -419,7 +419,8 @@ class SocialGNN(object):
       if type == "RNN":
         RNN_activations.extend(test_values["RNN_activations"])
       elif type == "classifier":
-        RNN_activations.extend(test_values["output_label_V"])
+        temp = [np.exp(x)/sum(np.exp(x)) for x in test_values["output_label_V"]]
+        RNN_activations.extend(temp)
 
     return RNN_activations
 
@@ -451,6 +452,7 @@ class SocialGNN(object):
     infile = C_string + '/model.meta'
     load_saver = tf.train.import_meta_graph(infile)
     load_saver.restore(self.sess,tf.train.latest_checkpoint(C_string))
+    print("\nTrainable paramters: ", np.sum([np.prod(v.get_shape().as_list()) for v in tf.trainable_variables()]))
 
 
 ### SocialGNN E_Pred Model
@@ -887,7 +889,7 @@ class CueBasedLSTM(object):
 
     return np.mean(np.equal(V0_pred, V0_true))
 
-  def get_activations(self, test_data_idx, mapping):
+  def get_activations(self, test_data_idx, mapping, type = "RNN"):
     print("\n.............TESTING..............")
     test_loss = 0
     test_loss_V = 0
@@ -921,7 +923,11 @@ class CueBasedLSTM(object):
       #print("Test Loss", test_values['loss'])
       test_loss += test_values['loss']
 
-      RNN_activations.extend(test_values["RNN_activations"])
+      if type == "RNN":
+        RNN_activations.extend(test_values["RNN_activations"])
+      elif type == "classifier":
+        temp = [np.exp(x)/sum(np.exp(x)) for x in test_values["output_label_V"]]
+        RNN_activations.extend(temp)
 
     return RNN_activations
 
