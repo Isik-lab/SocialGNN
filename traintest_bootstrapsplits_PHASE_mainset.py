@@ -48,7 +48,7 @@ if args.model_name == "SocialGNN_V" or args.model_name == "SocialGNN_V_onlyagent
     print("\n\n Bootstrap No.:",split)
 
     # change parameters for only agent edges
-    C = model_config(NUM_NODES = 4, NUM_AGENTS = a, V_SPATIAL_SIZE = 12, E_SPATIAL_SIZE = 12, V_TEMPORAL_SIZE = 6, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
+    C = model_config(NUM_NODES = 4, NUM_AGENTS = a, V_SPATIAL_SIZE = 64, E_SPATIAL_SIZE = 64, V_TEMPORAL_SIZE = 16, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
     N_EPOCHS = 3
     model = SocialGNN(Videos, C, args.context_info, sample_graph_dicts_list)
     model._initialize_session()
@@ -80,7 +80,7 @@ elif args.model_name == "SocialGNN_E" or args.model_name == "SocialGNN_E_onlyage
     print("\n\n Bootstrap No.:",split)
 
     # change parameters for only agent edges
-    C = model_config(NUM_NODES = 4, MAX_EDGES = 12, E_SPATIAL_SIZE = 12, E_TEMPORAL_SIZE = 6, E_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
+    C = model_config(NUM_NODES = 4, MAX_EDGES = 12, E_SPATIAL_SIZE = 64, E_TEMPORAL_SIZE = 16, E_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
     N_EPOCHS = 3
     model = SocialGNN_E(Videos, C, args.context_info, sample_graph_dicts_list, ablate = a)
     model._initialize_session()
@@ -114,7 +114,7 @@ elif args.model_name == "CueBasedLSTM" or args.model_name == "CueBasedLSTM-Relat
         y_test = pickle.load(f)
     print("\n\n Bootstrap No.:",split)
 
-    C = model_config(FEATURE_SIZE = f_size, V_TEMPORAL_SIZE = 6, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
+    C = model_config(FEATURE_SIZE = f_size, V_TEMPORAL_SIZE = 16, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
     N_EPOCHS = 3
     model = CueBasedLSTM(Videos, C, args.context_info, explicit_edges = e)
     model._initialize_session()

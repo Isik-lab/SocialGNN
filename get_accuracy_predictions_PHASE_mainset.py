@@ -58,15 +58,20 @@ if args.model_name == "SocialGNN_V" or args.model_name == "SocialGNN_V_onlyagent
   model._initialize_session()
   model.load_model(model_string  + str(args.bootstrap_no) + '_' + args.model_name)
 
-  accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = args.save_predictions)
+  if args.save_predictions:
+    accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = args.save_predictions)
 
-  inv_mapping = {0:'friendly',  1:'neutral',  2:'adversarial'}
-  TL = {Videos[X_test[i]]['name']:inv_mapping[true_labels[i]] for i in range(len(true_labels))}
-  PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
-  
-  with open('./Outputs/Predictions/' + model_string[16:] + '_' + timestr + '_' + str(args.bootstrap_no) + '_' + args.model_name, "wb") as f:
-      pickle.dump(TL, f)
-      pickle.dump(PL, f)
+    inv_mapping = {0:'friendly',  1:'neutral',  2:'adversarial'}
+    TL = {Videos[X_test[i]]['name']:inv_mapping[true_labels[i]] for i in range(len(true_labels))}
+    PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
+    
+    with open('./Outputs/Predictions/' + model_string[16:] + '_' + timestr + '_' + str(args.bootstrap_no) + '_' + args.model_name, "wb") as f:
+        pickle.dump(TL, f)
+        pickle.dump(PL, f)
+
+  else:
+    accuracy = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = args.save_predictions)
+
 
 elif args.model_name == "SocialGNN_E" or args.model_name == "SocialGNN_E_onlyagentedges":
   print("\n.............TESTING..............")
@@ -82,15 +87,19 @@ elif args.model_name == "SocialGNN_E" or args.model_name == "SocialGNN_E_onlyage
   model._initialize_session()
   model.load_model(model_string  + str(args.bootstrap_no) + '_' + args.model_name)
 
-  accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = True)
+  if args.save_predictions:
+    accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = args.save_predictions)
 
-  inv_mapping = {0:'friendly',  1:'neutral',  2:'adversarial'}
-  TL = {Videos[X_test[i]]['name']:inv_mapping[true_labels[i]] for i in range(len(true_labels))}
-  PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
-  
-  with open('./Outputs/Predictions/' + model_string[16:] + '_' + timestr + '_' + str(args.bootstrap_no) + '_' + args.model_name, "wb") as f:
-      pickle.dump(TL, f)
-      pickle.dump(PL, f)
+    inv_mapping = {0:'friendly',  1:'neutral',  2:'adversarial'}
+    TL = {Videos[X_test[i]]['name']:inv_mapping[true_labels[i]] for i in range(len(true_labels))}
+    PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
+    
+    with open('./Outputs/Predictions/' + model_string[16:] + '_' + timestr + '_' + str(args.bootstrap_no) + '_' + args.model_name, "wb") as f:
+        pickle.dump(TL, f)
+        pickle.dump(PL, f)
+
+  else:
+    accuracy = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = args.save_predictions)
 
 elif args.model_name == "CueBasedLSTM" or args.model_name == "CueBasedLSTM-Relation":
   #CueBasedLSTM-Relation: set 28-->40 explicit_edges=True, and output file name append -Relation
@@ -110,15 +119,19 @@ elif args.model_name == "CueBasedLSTM" or args.model_name == "CueBasedLSTM-Relat
   model._initialize_session()
   model.load_model(model_string  + str(args.bootstrap_no) + '_' + args.model_name)
 
-  accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = True)
+  if args.save_predictions:
+    accuracy, true_labels, pred_labels = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = args.save_predictions)
 
-  inv_mapping = {0:'friendly',  1:'neutral',  2:'adversarial'}
-  TL = {Videos[X_test[i]]['name']:inv_mapping[true_labels[i]] for i in range(len(true_labels))}
-  PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
-  
-  with open('./Outputs/Predictions/' + model_string[16:] + '_' + timestr + '_' + str(args.bootstrap_no) + '_' + args.model_name, "wb") as f:
-      pickle.dump(TL, f)
-      pickle.dump(PL, f)
+    inv_mapping = {0:'friendly',  1:'neutral',  2:'adversarial'}
+    TL = {Videos[X_test[i]]['name']:inv_mapping[true_labels[i]] for i in range(len(true_labels))}
+    PL = {Videos[X_test[i]]['name']:inv_mapping[pred_labels[i]] for i in range(len(pred_labels))}
+    
+    with open('./Outputs/Predictions/' + model_string[16:] + '_' + timestr + '_' + str(args.bootstrap_no) + '_' + args.model_name, "wb") as f:
+        pickle.dump(TL, f)
+        pickle.dump(PL, f)
+
+  else:
+    accuracy = model.test(test_data_idx=X_test, mapping=mapping, output_predictions = args.save_predictions)
 
 
 
