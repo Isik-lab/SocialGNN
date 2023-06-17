@@ -272,7 +272,7 @@ class SocialGNN(object):
     #print("Optimizer",self.optimizer)
 
     self.output_label_V = output_label_V
-    #print("\nTrainable paramters: ", np.sum([np.prod(v.get_shape().as_list()) for v in tf.trainable_variables()]))
+    print("\nTrainable paramters: ", np.sum([np.prod(v.get_shape().as_list()) for v in tf.trainable_variables()]))
     self.trainable_variables = tf.trainable_variables()
     self.final_state = final_state[0] #final (non-zero) layer of dynamicRNN
 
@@ -457,7 +457,7 @@ class SocialGNN(object):
 
 ### SocialGNN E_Pred Model
 class SocialGNN_E(object):
-  def __init__(self, dataset, config, context_info, sample_graph_dicts_list, ablate = False):
+  def __init__(self, dataset, config, context_info, sample_graph_dicts_list, ablate=False):
     self.graph = tf.Graph()
 
     self.dataset = dataset
@@ -516,10 +516,12 @@ class SocialGNN_E(object):
 
     x_padded = tf.reshape(filtered_logits, [-1,self.config.MAX_EDGES, self.config.E_SPATIAL_SIZE] ) #n_graphs x 12 possible edges x 5 dim edgefeatures
     #print(x_padded.shape)
+
     if self.ablate:
       x_padded_sliced = tf.reshape(tf.gather(x_padded,indices=[0,3], axis=1),[-1,2*self.config.E_SPATIAL_SIZE] )
     else:
       x_padded_sliced = tf.reshape(tf.gather(x_padded,indices=[0,1,2,3,4,5,6,7,8,9,10,11], axis=1),[-1,12*self.config.E_SPATIAL_SIZE] )
+
     #print(x_padded_sliced.shape)
     x_final = tf.RaggedTensor.from_row_lengths(x_padded_sliced,row_lengths=self.videos_timesteps_placeholder) #separate videowise timesteps
 
@@ -546,7 +548,7 @@ class SocialGNN_E(object):
     #print("Optimizer",self.optimizer)
 
     self.output_label_E = output_label_E
-    #print("\nTrainable paramters: ", np.sum([np.prod(v.get_shape().as_list()) for v in tf.trainable_variables()]))
+    print("\nTrainable paramters: ", np.sum([np.prod(v.get_shape().as_list()) for v in tf.trainable_variables()]))
     self.trainable_variables = tf.trainable_variables()
     self.final_state = final_state[0] #final (non-zero) layer of dynamicRNN
 
@@ -784,6 +786,7 @@ class CueBasedLSTM(object):
     self.final_state = final_state[0] #final (non-zero) layer of dynamicRNN
     #print("\nLoss", self.loss_V, self.loss)
     #print("Optimizer",self.optimizer)
+    print("\nTrainable paramters: ", np.sum([np.prod(v.get_shape().as_list()) for v in tf.trainable_variables()]))
 
 
   def train(self, N_EPOCHS, train_data_idx, mapping, plot=True):

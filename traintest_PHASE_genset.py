@@ -21,17 +21,16 @@ if args.mode == "train":
   model_string = './TrainedModels/PHASE_originalsplit_context'+ str(args.context_info) + '_' + timestr + '_'
 elif args.mode == "test":
   save_predictions = args.save_predictions
-  #ideally uncomment the next two lines and comment other lines in this block
-  train_datetime = '20230502'
-  model_string = './TrainedModels/PHASE_originalsplit_context'+ str(args.context_info) + '_' + train_datetime + '_'
-  model_string = './TrainedModels/PHASE_originalsplit_withcontext_20230502-1601_'
-  '''
-  if args.context_info ==True:
-    #string = './TrainedModels/PHASE_originalsplit_withcontext_' + timestr + '_' 
-    string = './TrainedModels/PHASE_originalsplit_withcontext_June28_'
-  else:
-    string = './TrainedModels/PHASE_originalsplit_May5_' #without context, also need to toggle use_globals
-  '''
+  #you can set the below part based on whatever your trained model is saved as
+  if args.model_name=="SocialGNN_E":
+    train_datetime = '20230515'
+    model_string = './TrainedModels/PHASE_originalsplit_context'+ str(args.context_info) + '_' + train_datetime + '_'
+  else:  
+    if args.context_info ==True:
+      model_string = './TrainedModels/PHASE_originalsplit_withcontext_June28_'
+    else:
+      model_string = './TrainedModels/PHASE_originalsplit_May5_' 
+  
 ### LOAD TRAIN DATA
 ## Get videos data (position, vel, landmark info etc and associated human rating labels)
 with open('./PHASE/Videos_humanratings', "rb") as f:
@@ -164,7 +163,7 @@ elif args.mode == "train" or args.mode == "test":
     model_config = namedtuple('model_config', 'NUM_NODES MAX_EDGES E_SPATIAL_SIZE E_TEMPORAL_SIZE E_OUTPUT_SIZE BATCH_SIZE CLASS_WEIGHTS LEARNING_RATE LAMBDA')
     sample_graph_dicts_list, _, _ = get_inputs_outputs(Videos[:20])
 
-    C = model_config(NUM_NODES = 4, MAX_EDGES = 12, E_SPATIAL_SIZE = 16, E_TEMPORAL_SIZE = 6, E_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
+    C = model_config(NUM_NODES = 4, MAX_EDGES = 12, E_SPATIAL_SIZE = 64, E_TEMPORAL_SIZE = 16, E_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
     N_EPOCHS = 3
     model = SocialGNN_E(Videos, C, args.context_info, sample_graph_dicts_list)
     model._initialize_session()
@@ -190,7 +189,6 @@ elif args.mode == "train" or args.mode == "test":
           pickle.dump(PL, f)
     
   elif args.model_name == "CueBasedLSTM" or args.model_name == "CueBasedLSTM-Relation":
-    #CueBasedLSTM-Relation: set 28-->40 explicit_edges=True, and output file name append -Relation
     model_config = namedtuple('model_config', 'FEATURE_SIZE V_TEMPORAL_SIZE V_OUTPUT_SIZE BATCH_SIZE CLASS_WEIGHTS LEARNING_RATE LAMBDA')
 
     if args.model_name == "CueBasedLSTM":
