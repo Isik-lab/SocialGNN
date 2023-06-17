@@ -23,7 +23,7 @@ Please refer to our paper for the terminology used here and for changes in param
 
 ###### Getting Accuracy and Predicted Labels using Trained Models
   ```
-  python get_accuracy_predictions_PHASE_mainset.py --model_name="SocialGNN_V" --bootstrap_no=0 --context_info=True
+  mmalik16$ python get_accuracy_predictions_PHASE_mainset.py --model_name=SocialGNN_E --train_datetime=20230503 --context_info=True --bootstrap_no=0 --save_predictions=False
   ```
 ###### Training (with bootstrapped train-test splits) SocialGNN or VisualRNN/CueBasedLSTM models
   ```
