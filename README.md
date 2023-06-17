@@ -43,6 +43,7 @@ Please refer to our paper for the terminology used here and for changes in param
 
 #### Running SocialGNN on the Gaze dataset
 Set <prediction_type> to 2 for social v/s non-social classification; set to 5 for classifying into the 5 gaze labels
+The first 10 bootstrpas correspond to "dataset=5Jun23", the next 10 to "dataset=14Jun23"
 
 ###### Getting Accuracy (on all bootstrapped train-test splits) using Trained Models
   ```
@@ -54,6 +55,10 @@ Set <prediction_type> to 2 for social v/s non-social classification; set to 5 fo
 ###### Training SocialGNN or VisualRNN/CueBasedLSTM models
 ```
   python traintest_bootstrapsplits_Gaze.py train <model_to_train> <prediction_type>
+```
+###### Training/Testing VGG19 model
+```
+python VGG19full_traintest_gaze.py --mode=test --dataset=5Jun23 --output_type=2
 ```
 
 <!--- ## Repository Components --->
