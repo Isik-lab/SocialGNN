@@ -47,14 +47,14 @@ The first 10 bootstrpas correspond to "dataset=5Jun23", the next 10 to "dataset=
 
 ###### Getting Accuracy (on all bootstrapped train-test splits) using Trained Models
   ```
-  python traintest_bootstrapsplits_Gaze.py test <model_to_test> <prediction_type>
+  python traintest_bootstrapsplits_Gaze.py test <model_to_test> <prediction_type> <dataset>
   
   Example:
   python traintest_bootstrapsplits_Gaze.py test CueBasedLSTM-Relation 5
   ```
 ###### Training SocialGNN or VisualRNN/CueBasedLSTM models
 ```
-  python traintest_bootstrapsplits_Gaze.py train <model_to_train> <prediction_type>
+  python traintest_bootstrapsplits_Gaze.py train <model_to_train> <prediction_type> <dataset>
 ```
 ###### Training/Testing VGG19 model
 ```
