@@ -13,8 +13,6 @@ from collections import Counter
 import sklearn
 from sklearn.model_selection import KFold, StratifiedKFold
 
-ground_truth = "human_ratings"
-
 ### HELPER FUNCTIONS
 
 # Input to specify what enity IDs are agents
@@ -176,10 +174,8 @@ def get_inputs_outputs(InpVideos):
   graph_dicts_list, videos_timesteps = create_Gin(InpVideos)
   labels_social = []
   for v in range(len(InpVideos)):
-    if ground_truth == "human_ratings":
-      labels_social.append(InpVideos[v]['social_goals']) 
-    else:
-      labels_social.append([InpVideos[v]['social_goals'][a][0] for a in agents])
+    labels_social.append(InpVideos[v]['social_goals']) 
+
   return graph_dicts_list, videos_timesteps, labels_social
 
 def get_edges_boolean(Gin, E_SPATIAL_SIZE):
@@ -294,10 +290,7 @@ class SocialGNN(object):
         # get X_train and Y_train from dataset + train_idx
         input_graph_dicts_list, input_videos_timesteps, input_labels_social = get_inputs_outputs(np.array(self.dataset)[batch])
         Gin = gn.utils_np.data_dicts_to_graphs_tuple(input_graph_dicts_list)
-        if ground_truth == 'human_ratings':
-          input_labels = [mapping[x] for x in input_labels_social]
-        else:
-          input_labels = [mapping[x[0]] for x in input_labels_social] #only agent 0
+        input_labels = [mapping[x] for x in input_labels_social]
 
         # feed dictionary
         feed_dict = gn.utils_tf.get_feed_dict(self.Gin_placeholder, Gin)  #needed because None fields
@@ -347,10 +340,8 @@ class SocialGNN(object):
       # Get input
       input_graph_dicts_list, input_videos_timesteps, input_labels_social = get_inputs_outputs(np.array(self.dataset)[batch])
       Gin = gn.utils_np.data_dicts_to_graphs_tuple(input_graph_dicts_list)
-      if ground_truth == 'human_ratings':
-          input_labels = [mapping[x] for x in input_labels_social]
-      else:
-          input_labels = [mapping[x[0]] for x in input_labels_social] #only agent 0
+      input_labels = [mapping[x] for x in input_labels_social]
+
 
       # feed dictionary
       feed_dict = gn.utils_tf.get_feed_dict(self.Gin_placeholder, Gin)  #needed because None fields
@@ -398,10 +389,7 @@ class SocialGNN(object):
       # Get input
       input_graph_dicts_list, input_videos_timesteps, input_labels_social = get_inputs_outputs(np.array(self.dataset)[batch])
       Gin = gn.utils_np.data_dicts_to_graphs_tuple(input_graph_dicts_list)
-      if ground_truth == 'human_ratings':
-          input_labels = [mapping[x] for x in input_labels_social]
-      else:
-          input_labels = [mapping[x[0]] for x in input_labels_social] #only agent 0
+      input_labels = [mapping[x] for x in input_labels_social]
 
       # feed dictionary
       feed_dict = gn.utils_tf.get_feed_dict(self.Gin_placeholder, Gin)  #needed because None fields
@@ -570,10 +558,7 @@ class SocialGNN_E(object):
         # get X_train and Y_train from dataset + train_idx
         input_graph_dicts_list, input_videos_timesteps, input_labels_social = get_inputs_outputs(np.array(self.dataset)[batch])
         Gin = gn.utils_np.data_dicts_to_graphs_tuple(input_graph_dicts_list)
-        if ground_truth == 'human_ratings':
-          input_labels = [mapping[x] for x in input_labels_social]
-        else:
-          input_labels = [mapping[x[0]] for x in input_labels_social] #only agent 0
+        input_labels = [mapping[x] for x in input_labels_social]
 
         # feed dictionary
         feed_dict = gn.utils_tf.get_feed_dict(self.Gin_placeholder, Gin)  #needed because None fields
@@ -623,10 +608,7 @@ class SocialGNN_E(object):
       # Get input
       input_graph_dicts_list, input_videos_timesteps, input_labels_social = get_inputs_outputs(np.array(self.dataset)[batch])
       Gin = gn.utils_np.data_dicts_to_graphs_tuple(input_graph_dicts_list)
-      if ground_truth == 'human_ratings':
-          input_labels = [mapping[x] for x in input_labels_social]
-      else:
-          input_labels = [mapping[x[0]] for x in input_labels_social] #only agent 0
+      input_labels = [mapping[x] for x in input_labels_social]
 
       # feed dictionary
       feed_dict = gn.utils_tf.get_feed_dict(self.Gin_placeholder, Gin)  #needed because None fields
@@ -674,10 +656,7 @@ class SocialGNN_E(object):
       # Get input
       input_graph_dicts_list, input_videos_timesteps, input_labels_social = get_inputs_outputs(np.array(self.dataset)[batch])
       Gin = gn.utils_np.data_dicts_to_graphs_tuple(input_graph_dicts_list)
-      if ground_truth == 'human_ratings':
-          input_labels = [mapping[x] for x in input_labels_social]
-      else:
-          input_labels = [mapping[x[0]] for x in input_labels_social] #only agent 0
+      input_labels = [mapping[x] for x in input_labels_social]
 
       # feed dictionary
       feed_dict = gn.utils_tf.get_feed_dict(self.Gin_placeholder, Gin)  #needed because None fields
@@ -806,10 +785,7 @@ class CueBasedLSTM(object):
 
         # get X_train and Y_train from dataset + train_idx
         X, input_videos_timesteps, input_labels_social = get_inputs_outputs_baseline(np.array(self.dataset)[batch], self.explicit_edges, self.context_info)
-        if ground_truth == 'human_ratings':
-          input_labels = [mapping[x] for x in input_labels_social]
-        else:
-          input_labels = [mapping[x[0]] for x in input_labels_social] #only agent 0
+        input_labels = [mapping[x] for x in input_labels_social]
 
         # feed dictionary
         feed_dict = {}
@@ -855,10 +831,7 @@ class CueBasedLSTM(object):
 
       # Get input
       X, input_videos_timesteps, input_labels_social = get_inputs_outputs_baseline(np.array(self.dataset)[batch], self.explicit_edges, self.context_info)
-      if ground_truth == 'human_ratings':
-          input_labels = [mapping[x] for x in input_labels_social]
-      else:
-          input_labels = [mapping[x[0]] for x in input_labels_social] #only agent 0
+      input_labels = [mapping[x] for x in input_labels_social]
 
       # feed dictionary
       feed_dict = {}
@@ -908,10 +881,7 @@ class CueBasedLSTM(object):
 
       # Get input
       X, input_videos_timesteps, input_labels_social = get_inputs_outputs_baseline(np.array(self.dataset)[batch], self.explicit_edges, self.context_info)
-      if ground_truth == 'human_ratings':
-          input_labels = [mapping[x] for x in input_labels_social]
-      else:
-          input_labels = [mapping[x[0]] for x in input_labels_social] #only agent 0
+      input_labels = [mapping[x] for x in input_labels_social]
 
       # feed dictionary
       feed_dict = {}
@@ -974,10 +944,7 @@ def get_inputs_outputs_baseline(InpVideos, explicit_edges=False, context_info = 
 
     video_timesteps.append(n_timesteps)
     
-    if ground_truth == "human_ratings":
-      labels_social.append(InpVideos[v]['social_goals']) 
-    else:
-      labels_social.append([InpVideos[v]['social_goals'][a][0] for a in agents]) 
+    labels_social.append(InpVideos[v]['social_goals']) 
     
     for t in range(n_timesteps):  
       nodes = []
