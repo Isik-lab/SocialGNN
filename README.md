@@ -50,7 +50,7 @@ The first 10 bootstrpas correspond to "dataset=5Jun23", the next 10 to "dataset=
   python traintest_bootstrapsplits_Gaze.py test <model_to_test> <prediction_type> <dataset>
   
   Example:
-  python traintest_bootstrapsplits_Gaze.py test CueBasedLSTM-Relation 5
+  python traintest_bootstrapsplits_Gaze.py test CueBasedLSTM-Relation 5 5Jun23
   ```
 ###### Training SocialGNN or VisualRNN/CueBasedLSTM models
 ```
