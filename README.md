@@ -25,6 +25,10 @@ Please refer to our paper for the terminology used here and for changes in param
   ```
   python get_accuracy_predictions_PHASE_mainset.py --model_name=SocialGNN_E --train_datetime=20230503 --context_info=True --bootstrap_no=0 --save_predictions=False
   ```
+<sup>--model_name= SocialGNN_V/ SocialGNN_E/ CueBasedLSTM/ CueBasedLSTM-Relation/ SocialGNN_V_onlyagents/ SocialGNN_E_onlyagentedges </sup> \
+<sup> --train_datetime= 20230503 / 20230617 (for SocialGNN_V_onlyagents/SocialGNN_E_onlyagentedges) </sup> \
+<sup> --bootstrap_no= 0-9 </sup>
+  
 ###### Training (with bootstrapped train-test splits) SocialGNN or VisualRNN/CueBasedLSTM models
   ```
   python traintest_bootstrapsplits_PHASE_mainset.py --model_name="SocialGNN_V" --context_info=True
