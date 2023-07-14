@@ -8,6 +8,10 @@ import time
 import argparse
 from distutils.util import strtobool
 
+# Note for training on PHASE goals instead:
+#       change model string, change train videos to Videos_PHASEgoals while loading
+#       change class weights to [2,1,4]
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--mode', help="train/test/hyperparameter_tune", type= str)
 parser.add_argument('--model_name', help="SocialGNN_V/SocialGNN_E/CueBasedLSTM/CueBasedLSTM-Relation", type= str)
@@ -19,6 +23,7 @@ timestr = time.strftime("%Y%m%d")
 
 if args.mode == "train":
   model_string = './TrainedModels/PHASE_originalsplit_context'+ str(args.context_info) + '_' + timestr + '_'
+  #model_string = './TrainedModels/PHASE_originalsplit_trainPHASEgoals_context'+ str(args.context_info) + '_' + timestr + '_'
 elif args.mode == "test":
   save_predictions = args.save_predictions
   #you can set the below part based on whatever your trained model is saved as
@@ -35,6 +40,9 @@ elif args.mode == "test":
 ## Get videos data (position, vel, landmark info etc and associated human rating labels)
 with open('./PHASE/Videos_humanratings', "rb") as f:
   Videos = pickle.load(f)
+
+#with open('./PHASE/Videos_PHASEgoals', "rb") as f:
+#  Videos = pickle.load(f)
 
 ### LOAD TEST DATA
 with open('./PHASE/Videos_Test_humanratings', "rb") as f:
@@ -133,8 +141,8 @@ elif args.mode == "train" or args.mode == "test":
     model_config = namedtuple('model_config', 'NUM_NODES NUM_AGENTS V_SPATIAL_SIZE E_SPATIAL_SIZE V_TEMPORAL_SIZE V_OUTPUT_SIZE BATCH_SIZE CLASS_WEIGHTS LEARNING_RATE LAMBDA')
     sample_graph_dicts_list, _, _ = get_inputs_outputs(Videos[:20])
 
-    C = model_config(NUM_NODES = 4, NUM_AGENTS = 4, V_SPATIAL_SIZE = 16, E_SPATIAL_SIZE = 16, V_TEMPORAL_SIZE = 6, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
-    N_EPOCHS = 3
+    C = model_config(NUM_NODES = 4, NUM_AGENTS = 4, V_SPATIAL_SIZE = 64, E_SPATIAL_SIZE = 64, V_TEMPORAL_SIZE = 16, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
+    N_EPOCHS = 100
     model = SocialGNN(Videos, C, args.context_info, sample_graph_dicts_list)
     model._initialize_session()
     
@@ -164,7 +172,7 @@ elif args.mode == "train" or args.mode == "test":
     sample_graph_dicts_list, _, _ = get_inputs_outputs(Videos[:20])
 
     C = model_config(NUM_NODES = 4, MAX_EDGES = 12, E_SPATIAL_SIZE = 64, E_TEMPORAL_SIZE = 16, E_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.05 )
-    N_EPOCHS = 3
+    N_EPOCHS = 100
     model = SocialGNN_E(Videos, C, args.context_info, sample_graph_dicts_list)
     model._initialize_session()
     
@@ -199,7 +207,7 @@ elif args.mode == "train" or args.mode == "test":
       e = True
       
     C = model_config(FEATURE_SIZE = f_size, V_TEMPORAL_SIZE = 16, V_OUTPUT_SIZE = 3, BATCH_SIZE = 20, CLASS_WEIGHTS = [[1.0,2.0,1.0]], LEARNING_RATE = 1e-3, LAMBDA = 0.01 )
-    N_EPOCHS = 3
+    N_EPOCHS = 100
     model = CueBasedLSTM(Videos, C, args.context_info, explicit_edges = e)
     model._initialize_session()
     
