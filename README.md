@@ -37,7 +37,6 @@ Please refer to our paper for the terminology used here and for changes in param
 ###### Getting Accuracy using Trained Models
   ```
   python traintest_PHASE_genset.py --mode=test --model_name=SocialGNN_E --context_info=True
-  
   ```
 ###### Training SocialGNN or VisualRNN/CueBasedLSTM models
 ```
