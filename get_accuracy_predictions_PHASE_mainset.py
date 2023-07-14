@@ -10,11 +10,11 @@ import argparse
 from distutils.util import strtobool
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--model_name', help="SocialGNN_V/SocialGNN_E/CueBasedLSTM/CueBasedLSTM-Relation", type= str)
+parser.add_argument('--model_name', help="SocialGNN_V/SocialGNN_E/CueBasedLSTM/CueBasedLSTM-Relation/SocialGNN_V_onlyagents/SocialGNN_E_onlyagentedges", type= str)
 parser.add_argument('--train_datetime', help="YYYYMMDD", type= str, default= "20230503")
 parser.add_argument('--context_info', help="True/False", type=lambda x: bool(strtobool(x)), default=True)
 parser.add_argument('--bootstrap_no', help="0-9", type=int, default=0)
-parser.add_argument('--save_predictions', help="True/False", type=lambda x: bool(strtobool(x)), default = True)
+parser.add_argument('--save_predictions', help="True/False", type=lambda x: bool(strtobool(x)), default = False)
 
 args = parser.parse_args()
 timestr = time.strftime("%Y%m%d")
@@ -22,13 +22,6 @@ timestr = time.strftime("%Y%m%d")
 model_string = './TrainedModels/PHASE_mysplit_humanratings_context'+ str(args.context_info) + '_' + str(args.train_datetime) + '_'
 bootstrap_file = './PHASE/bootstrapped_traintest_splits_pickles/XY_Apr30_humanratings_' + str(args.bootstrap_no)
 
-'''
-### LOAD DATA
-bootstrap_no = sys.argv[1]
-model_to_test = sys.argv[2]
-string = './TrainedModels/PHASE_mysplit_humanratings_May1_' + bootstrap_no + '_'
-bootstrap_file = './PHASE/bootstrapped_traintest_splits_pickles/XY_Apr30_humanratings_' + bootstrap_no
-'''
 
 ## Get videos data (position, vel, landmark info etc and associated human rating labels)
 with open('./PHASE/Videos_humanratings', "rb") as f:
@@ -44,7 +37,6 @@ with open(bootstrap_file, "rb") as f:
   y_test = pickle.load(f) 
 
 # Start Training and Testing
-
 if args.model_name == "SocialGNN_V" or args.model_name == "SocialGNN_V_onlyagents":
   print("\n.............TESTING..............")
 
