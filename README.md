@@ -14,7 +14,7 @@ P.S.: VisualRNN = CueBasedLSTM
 ## Conda Environment / Prerequisites
 - For macOS: 
 ```Conda Environments/condaenv_macbook_gnnEnv_Oct17_2022.yml ```
-- For Linux: _To Be Added_
+- For Linux: ```Conda Environments/condaenv_rockfish_gnnEnv_Jul1423.yml ```
 
 ## How to Run the Code?
 Please refer to our paper for the terminology used here and for changes in parameter settings.
