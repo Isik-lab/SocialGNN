@@ -40,7 +40,7 @@ Please refer to our paper for the terminology used here and for changes in param
   ```
 ###### Training SocialGNN or VisualRNN/CueBasedLSTM models
 ```
-  python traintest_PHASE_genset.py --mode=train --model_name=SocialGNN_E --context_info=True
+python traintest_PHASE_genset.py --mode=train --model_name=SocialGNN_E --context_info=True
 ```
 
 #### RSA on the PHASE datasets
@@ -65,7 +65,7 @@ The first 10 bootstrpas correspond to "dataset=5Jun23", the next 10 to "dataset=
   ```
 ###### Training SocialGNN or VisualRNN/CueBasedLSTM models
 ```
-  python traintest_bootstrapsplits_Gaze.py train <model_to_train> <prediction_type> <dataset>
+python traintest_bootstrapsplits_Gaze.py train <model_to_train> <prediction_type> <dataset>
 ```
 ###### Training/Testing VGG19 model
 ```
