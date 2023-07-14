@@ -43,6 +43,14 @@ Please refer to our paper for the terminology used here and for changes in param
   python traintest_PHASE_genset.py --mode=train --model_name=SocialGNN_E --context_info=True
 ```
 
+#### RSA on the PHASE datasets
+###### Getting Model Representations using Trained Models
+```
+python SocialGNN_get_activations.py --model_name=SocialGNN_E --context_info=True --bootstrap_no=0 --dataset=main_set --train_datetime=20230503 --activation_type=RNN
+```
+```
+python SocialGNN_get_activations.py --model_name=SocialGNN_E --context_info=True --dataset=generalization_set --train_datetime=20230515 --activation_type=RNN
+```
 
 #### Running SocialGNN on the Gaze dataset
 Set <prediction_type> to 2 for social v/s non-social classification; set to 5 for classifying into the 5 gaze labels
