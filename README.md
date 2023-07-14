@@ -72,6 +72,10 @@ python traintest_bootstrapsplits_Gaze.py train <model_to_train> <prediction_type
 python VGG19full_traintest_gaze.py --mode=test --dataset=5Jun23 --output_type=2
 ```
 
+#### Colab Notebook for Plots
+```
+SocialGNN_Generating_Plots_Github.ipynb
+```
 <!--- ## Repository Components --->
 
 ## To Be Added Soon
