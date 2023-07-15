@@ -1,0 +1,604 @@
+episode_id: 0
+record/test/D081920_0035030_0_F8_E8_G['LMO', 0, 0, 1]_['LMO', 0, 0, 1]_ST3_1_SZ0_0_0_1_P14_6_16_5_A0_0_C0_0_AN5.58_1.28_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e21_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 friendly
+episode_id: 1
+record/test/D081920_1135270_0_F8_E13_G['LMO', 1, 3, 1]_['LMO', 1, 3, 1]_ST2_2_SZ0_0_3_0_P7_15_17_16_A0_0_C0_0_AN-6.08_5.6_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e10_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+episode_id: 2
+record/test/D082020_1817530_0_F8_E8_G['LMO', 0, 1, 1]_['LMO', 0, 1, 1]_ST1_1_SZ3_0_3_1_P13_12_3_14_A0_0_C0_0_AN-0.15_-4.15_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e8_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_1_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_1_1 friendly
+episode_id: 3
+record/test/D082120_0315260_0_F8_E14_G['LMO', 0, 2, 1]_['LMO', 0, 2, 1]_ST3_3_SZ0_0_0_0_P14_10_11_3_A0_0_C0_0_AN4.12_1.82_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e12_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+episode_id: 4
+record/test/D082120_1315000_0_F8_E7_G['LMA', 1, 2, -1]_['LMA', 1, 2, 1]_ST3_1_SZ0_1_3_1_P6_14_2_11_A0_0_C0_0_AN-3.22_3.98_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e30_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_2_1 LMA_1_2_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_1_2_-1 LMA_1_2_1 adversarial
+episode_id: 5
+record/test/D082120_2101060_0_F8_E12_G['LMA', 1, 1, -1]_['LMA', 1, 1, 1]_ST3_1_SZ0_0_0_3_P0_13_10_6_A0_0_C0_0_AN1.43_-3.45_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e92_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_1_1 LMA_1_1_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_1_-1 LMA_1_1_1 adversarial
+episode_id: 6
+record/test/D082220_0106290_0_F8_E21_G['LMO', 0, 2, 1]_['LMO', 0, 2, 1]_ST1_2_SZ3_1_0_0_P11_17_15_1_A0_0_C0_0_AN5.85_-4.76_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e8_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+episode_id: 7
+record/test/D082220_0242530_0_F8_E17_G['LMO', 1, 0, 1]_['LMO', 1, 0, 1]_ST3_1_SZ0_0_1_0_P16_10_14_3_A0_0_C0_0_AN0.35_-5.48_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e50_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_0_1 LMO_1_0_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_0_1 LMO_1_0_1 friendly
+episode_id: 8
+record/test/D082220_1017460_0_F8_E0_G['LMO', 1, 3, 1]_['LMO', 1, 3, 1]_ST1_0_SZ3_0_0_0_P12_14_7_10_A0_0_C0_0_AN0.25_1.0_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e31_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+episode_id: 9
+record/test/D082220_1044100_0_F8_E4_G['LMO', 1, 0, 1]_['LMO', 1, 0, 1]_ST3_2_SZ1_3_1_0_P3_0_1_2_A0_0_C0_0_AN-4.61_-2.87_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e15_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_0_1 LMO_1_0_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_0_1 LMO_1_0_1 friendly
+episode_id: 10
+record/test/D082220_1620420_0_F8_E4_G['LMO', 0, 2, 1]_['LMO', 0, 2, 1]_ST2_2_SZ0_0_1_0_P1_10_5_12_A0_0_C0_0_AN5.41_-3.4_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e57_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+episode_id: 11
+record/test/D082220_2329490_0_F8_E12_G['LMO', 0, 2, 1]_['LMO', 0, 2, 1]_ST3_3_SZ1_1_0_3_P3_6_15_16_A0_0_C0_0_AN5.67_-2.05_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e14_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+episode_id: 12
+record/test/D082320_0705560_0_F8_E14_G['LMO', 0, 0, 1]_['LMO', 0, 0, 1]_ST2_2_SZ1_1_0_1_P3_14_11_14_A0_0_C0_0_AN-5.29_-1.57_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e10_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 friendly
+episode_id: 13
+record/test/D082420_0633080_0_F8_E8_G['LMA', 1, 0, -1]_['LMA', 1, 0, 1]_ST3_1_SZ0_0_2_3_P1_2_1_3_A0_0_C0_0_AN-1.13_-5.75_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e62_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_0_1 LMA_1_0_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_0_-1 LMA_1_0_1 adversarial
+episode_id: 14
+record/test/D082420_0811460_0_F8_E19_G['LMO', 1, 0, 1]_['LMO', 1, 0, 1]_ST3_1_SZ1_1_0_0_P15_1_11_15_A0_0_C0_0_AN-4.6_4.16_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e5_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_0_1 LMO_1_0_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_0_1 LMO_1_0_1 friendly
+episode_id: 15
+record/test/D082420_1405160_0_F8_E13_G['LMA', 1, 2, -1]_['LMA', 1, 2, 1]_ST3_1_SZ3_0_2_0_P7_2_17_2_A0_0_C0_0_AN1.16_1.46_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e32_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_1 LMA_1_2_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_2_-1 LMA_1_2_1 adversarial
+episode_id: 16
+record/test/D082420_1807070_0_F8_E13_G['LMA', 1, 2, -1]_['LMA', 1, 2, 1]_ST3_1_SZ3_0_2_1_P6_2_17_11_A0_0_C0_0_AN-0.74_-1.74_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e28_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_1 LMA_1_2_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_2_-1 LMA_1_2_1 adversarial
+episode_id: 17
+record/test/D082420_1949030_0_F8_E12_G['LMA', 1, 3, -1]_['LMA', 1, 3, 1]_ST3_1_SZ0_0_2_1_P3_17_15_17_A0_0_C0_0_AN-2.05_-0.64_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e69_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_1_3_-1 LMA_1_3_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_3_-1 LMA_1_3_1 adversarial
+episode_id: 18
+record/test/D082420_2313120_0_F8_E13_G['LMA', 1, 1, -1]_['LMA', 1, 1, 1]_ST3_3_SZ0_3_1_1_P16_6_10_13_A0_0_C0_0_AN-0.96_1.85_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e36_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_1_1 LMA_1_1_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_1_-1 LMA_1_1_1 adversarial
+episode_id: 19
+record/test/D082520_0417300_0_F8_E13_G['LMA', 1, 0, -1]_['LMA', 1, 0, 1]_ST3_1_SZ0_3_3_0_P4_2_7_1_A0_0_C0_0_AN5.39_-3.64_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e71_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_0_1 LMA_1_0_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_1_0_-1 LMA_1_0_1 adversarial
+episode_id: 20
+record/test/D082520_0757520_0_F8_E14_G['LMA', 1, 2, -1]_['LMA', 1, 2, 1]_ST3_1_SZ0_0_3_3_P2_15_0_10_A0_0_C0_0_AN-3.58_3.56_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e88_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_1_2_-1 LMA_1_2_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_2_-1 LMA_1_2_1 adversarial
+episode_id: 21
+record/test/D082520_1402250_0_F8_E15_G['LMA', 1, 1, -1]_['LMA', 1, 1, 1]_ST3_1_SZ3_0_2_3_P5_14_16_3_A0_0_C0_0_AN-2.05_0.17_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e67_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_1_-1 LMA_1_1_1 adversarial
+episode_id: 22
+record/test/D082520_1513240_0_F8_E19_G['LMO', 0, 1, 1]_['LMO', 0, 1, 1]_ST2_2_SZ0_0_0_1_P12_11_0_12_A0_0_C0_0_AN5.8_2.65_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e0_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_1_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_1_1 friendly
+episode_id: 23
+record/test/D082520_2138220_0_F8_E16_G['LMA', 1, 2, -1]_['LMA', 1, 2, 1]_ST3_1_SZ3_3_1_3_P3_3_0_14_A0_0_C0_0_AN-2.05_4.25_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e48_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_1_2_-1 LMA_1_2_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_2_-1 LMA_1_2_1 adversarial
+episode_id: 24
+record/test/D082620_1712090_0_F8_E20_G['LMA', 1, 0, -1]_['LMA', 1, 0, 1]_ST3_1_SZ0_0_2_3_P10_5_14_10_A0_0_C0_0_AN-3.67_4.83_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e86_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_1 LMA_1_0_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_0_-1 LMA_1_0_1 adversarial
+episode_id: 25
+record/test/D082720_1013370_0_F8_E21_G['LMA', 1, 0, -1]_['LMA', 1, 0, 1]_ST3_1_SZ0_0_1_3_P6_12_14_2_A0_0_C0_0_AN-5.89_5.62_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e55_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_0_1 LMA_1_0_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_0_-1 LMA_1_0_1 adversarial
+episode_id: 26
+record/test/D082720_1405480_0_F8_E18_G['LMO', 0, 3, 1]_['LMO', 0, 3, 1]_ST0_2_SZ0_0_0_1_P2_10_5_7_A0_0_C0_0_AN2.13_-1.46_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e43_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+episode_id: 27
+record/test/D082720_1415450_0_F8_E19_G['LMA', 1, 2, -1]_['LMA', 1, 2, 1]_ST3_3_SZ0_0_1_3_P15_5_7_11_A0_0_C0_0_AN-0.55_-0.84_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e26_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_1_2_-1 LMA_1_2_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_2_-1 LMA_1_2_1 adversarial
+episode_id: 28
+record/test/D082720_1633280_0_F8_E20_G['LMA', 1, 0, -1]_['LMA', 1, 0, 1]_ST3_3_SZ0_0_0_0_P3_15_16_7_A0_0_C0_0_AN2.89_-4.1_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e87_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_0_1 LMA_1_0_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_0_-1 LMA_1_0_1 adversarial
+episode_id: 29
+record/test/D082720_1832530_0_F8_E19_G['LMA', 1, 3, -1]_['LMA', 1, 3, 1]_ST3_3_SZ0_0_0_1_P17_0_4_10_A0_0_C0_0_AN-1.2_1.34_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e90_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_0_1 LMA_0_0_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_3_-1 LMA_1_3_1 adversarial
+episode_id: 30
+record/test/D082720_2053550_0_F8_E21_G['LMA', 1, 1, -1]_['LMA', 1, 1, 1]_ST2_1_SZ0_0_1_0_P12_15_11_4_A0_0_C0_0_AN-1.24_5.54_MCTS_L100_R-10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e38_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_1_1_-1 LMA_1_1_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_1_1_-1 LMA_1_1_1 adversarial
+episode_id: 31
+record/test/D082820_0758420_0_F8_E4_G['LMA', 0, 2, 1]_['LMA', 1, 1, 1]_ST3_1_SZ0_0_3_3_P14_0_6_5_A0_0_C0_0_AN2.26_0.71_MCTS_L60_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e41_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_2_1 LMA_1_1_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_2_1 LMA_1_1_1 neutral
+episode_id: 32
+record/test/D082820_1747000_0_F8_E10_G['LMO', 1, 1, 1]_['LMO', 1, 1, 1]_ST2_1_SZ3_1_1_0_P0_5_17_10_A0_0_C0_0_AN0.26_-4.38_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e13_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_2_1 LMO_1_1_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_1_1_1 LMO_1_1_1 friendly
+episode_id: 33
+record/test/D082820_1752230_0_F8_E15_G['LMA', 0, 0, 1]_['LMA', 1, 1, 1]_ST1_2_SZ0_0_3_2_P7_14_2_15_A0_0_C0_0_AN3.27_-0.28_MCTS_L80_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e64_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_0_1 LMA_1_1_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_0_1 LMA_1_1_1 neutral
+episode_id: 34
+record/test/D082820_1923120_0_F8_E13_G['LMO', 0, 0, 1]_['LMO', 1, 1, 1]_ST1_1_SZ0_0_0_0_P5_12_7_11_A0_0_C0_0_AN3.25_-1.77_MCTS_L80_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e24_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_1_1_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_1_1_1 neutral
+episode_id: 35
+record/test/D082820_2132410_0_F8_E20_G['LMO', 1, 2, 1]_['LMO', 1, 2, 1]_ST3_0_SZ0_0_3_0_P12_2_3_2_A0_0_C0_0_AN-2.45_-4.96_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e80_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_2_1 LMO_1_2_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_2_1 LMO_1_2_1 friendly
+episode_id: 36
+record/test/D082820_2224430_0_F8_E4_G['LMA', 0, 1, 1]_['LMA', 1, 3, 1]_ST1_1_SZ2_2_0_2_P17_17_16_4_A0_0_C0_0_AN4.4_-4.22_MCTS_L80_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e70_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_1_1 LMA_1_3_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_1_1 LMA_1_3_1 neutral
+episode_id: 37
+record/test/D082820_2258570_0_F8_E8_G['LMA', 0, 0, 1]_['LMA', 1, 1, 1]_ST1_2_SZ0_3_1_1_P6_7_3_11_A0_0_C0_0_AN4.27_4.35_MCTS_L80_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e89_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_0_1 LMA_1_1_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_0_1 LMA_1_1_1 neutral
+episode_id: 38
+record/test/D082820_2314230_0_F8_E18_G['LMA', 0, 3, 1]_['LMA', 1, 0, 1]_ST1_0_SZ0_2_1_0_P5_3_11_14_A0_0_C0_0_AN-1.56_-5.24_MCTS_L80_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e39_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_3_1 LMA_1_0_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_0_3_1 LMA_1_0_1 neutral
+episode_id: 39
+record/test/D082920_0534080_0_F8_E10_G['TE', 0, 1, 1]_['TE', 0, 1, -1]_ST3_2_SZ0_2_1_2_P16_6_12_13_A0_0_C0_0_AN-1.05_1.27_MCTS_L100_R0.0_-10.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e0_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+episode_id: 40
+record/test/D082920_0534240_0_F8_E20_G['LMO', 0, 1, 1]_['LMA', 1, 1, 1]_ST1_1_SZ0_0_0_2_P7_0_14_10_A0_0_C0_0_AN-5.32_0.6_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e29_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_1 LMA_1_1_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMO_0_1_1 LMA_1_1_1 neutral
+episode_id: 41
+record/test/D082920_0753410_0_F8_E13_G['TE', 0, 1, 1]_['TE', 0, 1, -1]_ST1_2_SZ0_0_1_2_P11_5_5_6_A0_0_C0_0_AN5.97_0.92_MCTS_L100_R0.0_-10.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e4_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+episode_id: 42
+record/test/D082920_0857320_0_F8_E2_G['LMO', 0, 2, 1]_['LMO', 0, 1, 1]_ST2_2_SZ0_3_0_0_P2_14_15_5_A0_0_C0_0_AN0.56_-1.37_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e61_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_1_1 adversarial
+episode_id: 43
+record/test/D082920_1014020_0_F8_E2_G['TE', 0, 1, 1]_['TE', 0, 1, -1]_ST1_2_SZ3_0_3_0_P15_0_3_12_A0_0_C0_0_AN0.46_-3.63_MCTS_L100_R0.0_-10.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e1_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+episode_id: 44
+record/test/D082920_1120380_0_F8_E17_G['LMA', 0, 1, 1]_['LMO', 1, 3, 1]_ST1_1_SZ0_0_3_1_P7_5_0_7_A0_0_C0_0_AN-4.47_0.33_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e21_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_1_1 LMO_1_3_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_1_1 LMO_1_3_1 neutral
+episode_id: 45
+record/test/D082920_1148200_0_F8_E0_G['LMA', 0, 2, 1]_['LMO', 1, 3, 1]_ST0_2_SZ0_3_1_1_P12_3_0_16_A0_0_C0_0_AN0.04_1.72_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e23_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_2_1 LMO_1_3_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_2_1 LMO_1_3_1 neutral
+episode_id: 46
+record/test/D082920_1248090_0_F8_E15_G['LMO', 0, 0, 1]_['LMO', 0, 0, 1]_ST1_3_SZ3_1_0_0_P12_10_4_14_A0_0_C0_0_AN0.31_1.54_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e9_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 friendly
+episode_id: 47
+record/test/D082920_1327330_0_F8_E0_G['LMO', 0, 3, 1]_['LMA', 1, 2, 1]_ST2_0_SZ1_2_2_2_P11_2_16_10_A0_0_C0_0_AN-0.55_1.89_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e44_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_3_1 LMA_1_2_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMO_0_3_1 LMA_1_2_1 neutral
+episode_id: 48
+record/test/D082920_1349410_0_F8_E19_G['TE', 0, 1, 1]_['TE', 0, 1, -1]_ST1_1_SZ0_0_3_2_P7_5_7_5_A0_0_C0_0_AN-6.03_-1.89_MCTS_L100_R0.0_-10.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e16_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+episode_id: 49
+record/test/D082920_1415050_0_F8_E9_G['LMA', 0, 2, 1]_['LMO', 1, 3, 1]_ST0_3_SZ2_2_2_3_P11_12_14_13_A0_0_C0_0_AN-3.51_-4.6_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e33_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_3_-1 LMO_1_3_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_0_2_1 LMO_1_3_1 neutral
+episode_id: 50
+record/test/D082920_1456060_0_F8_E4_G['LMO', 1, 3, 1]_['LMO', 1, 2, 1]_ST3_2_SZ0_0_2_0_P5_15_14_1_A0_0_C0_0_AN-6.24_1.93_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e17_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_2_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_2_1 adversarial
+episode_id: 51
+record/test/D082920_1647260_0_F8_E7_G['TE', 0, 1, 1]_['TE', 0, 1, -1]_ST3_1_SZ0_3_0_3_P11_6_4_12_A0_0_C0_0_AN5.13_5.88_MCTS_L100_R0.0_-10.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e11_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+episode_id: 52
+record/test/D082920_1650190_0_F8_E19_G['LMA', 0, 1, 1]_['LMO', 1, 2, 1]_ST2_2_SZ2_0_0_0_P7_15_1_10_A0_0_C0_0_AN-5.13_-2.96_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e47_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_1_1 LMO_1_2_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_1_1 LMO_1_2_1 neutral
+episode_id: 53
+record/test/D082920_1818420_0_F8_E2_G['LMO', 0, 3, 1]_['LMO', 1, 0, 1]_ST1_3_SZ2_0_0_1_P2_2_0_7_A0_0_C0_0_AN1.39_1.97_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e18_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_1_0_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_1_0_1 neutral
+episode_id: 54
+record/test/D082920_2006220_0_F8_E14_G['LMO', 0, 0, 1]_['LMO', 0, 0, 1]_ST3_3_SZ3_2_0_3_P11_1_2_11_A0_0_C0_0_AN0.18_-3.85_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e84_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 friendly
+episode_id: 55
+record/test/D082920_2129240_0_F8_E14_G['LMO', 1, 3, 1]_['LMO', 1, 3, 1]_ST2_1_SZ1_1_1_0_P0_3_15_0_A0_0_C0_0_AN2.5_-5.1_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e2_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+episode_id: 56
+record/test/D082920_2235090_0_F8_E10_G['LMA', 0, 1, 1]_['LMA', 1, 1, 1]_ST3_3_SZ0_3_0_2_P15_2_5_12_A0_0_C0_0_AN-2.77_-3.87_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e73_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_1_1 LMA_1_1_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_1_1 LMA_1_1_1 neutral
+episode_id: 57
+record/test/D082920_2235560_0_F8_E0_G['LMO', 1, 3, 1]_['LMO', 1, 3, 1]_ST1_0_SZ1_0_3_0_P12_17_16_13_A0_0_C0_0_AN-3.02_2.29_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e17_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+episode_id: 58
+record/test/D082920_2235560_0_F8_E16_G['LMO', 1, 1, 1]_['LMO', 1, 1, 1]_ST2_0_SZ1_0_2_0_P1_7_14_17_A0_0_C0_0_AN-4.58_-0.25_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e7_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_1_1 LMO_1_1_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_1_1 LMO_1_1_1 friendly
+episode_id: 59
+record/test/D082920_2300000_0_F8_E21_G['LMO', 0, 3, 1]_['LMA', 1, 2, 1]_ST2_2_SZ0_0_0_0_P7_2_12_3_A0_0_C0_0_AN-4.47_-0.98_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e42_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_3_1 LMA_1_2_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMO_0_3_1 LMA_1_2_1 neutral
+episode_id: 60
+record/test/D082920_2343080_0_F8_E4_G['LMA', 0, 1, 1]_['LMA', 1, 3, 1]_ST3_2_SZ3_0_3_3_P7_5_14_1_A0_0_C0_0_AN-3.09_-0.6_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e13_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_1_1 LMA_1_3_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_1_1 LMA_1_3_1 neutral
+episode_id: 61
+record/test/D082920_2353420_0_F8_E0_G['LMO', 0, 2, 1]_['LMO', 0, 2, 1]_ST2_0_SZ2_0_0_2_P6_14_0_1_A0_0_C0_0_AN1.53_-0.47_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e10_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+episode_id: 62
+record/test/D083020_0032250_0_F8_E13_G['LMA', 0, 2, 1]_['LMO', 1, 3, 1]_ST3_1_SZ0_0_1_0_P1_3_14_7_A0_0_C0_0_AN1.5_2.12_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e56_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_2_1 LMO_1_3_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_2_1 LMO_1_3_1 neutral
+episode_id: 63
+record/test/D083020_0150450_0_F8_E14_G['LMO', 0, 2, 1]_['LMO', 0, 1, 1]_ST3_1_SZ0_0_0_1_P10_15_1_3_A0_0_C0_0_AN-0.83_-1.65_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e40_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_1_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_1_1 adversarial
+episode_id: 64
+record/test/D083020_0201340_0_F8_E15_G['LMO', 0, 0, 1]_['LMA', 1, 3, 1]_ST2_1_SZ0_0_0_0_P3_4_13_16_A0_0_C0_0_AN0.95_-1.28_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e3_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_1 LMA_1_3_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMO_0_0_1 LMA_1_3_1 neutral
+episode_id: 65
+record/test/D083020_0318580_0_F8_E12_G['LMO', 0, 2, 1]_['LMO', 0, 1, 1]_ST3_3_SZ0_0_0_3_P2_3_11_5_A0_0_C0_0_AN0.43_1.18_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e72_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_1_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_1_1 adversarial
+episode_id: 66
+record/test/D083020_0502590_0_F8_E8_G['LMO', 0, 3, 1]_['LMO', 0, 2, 1]_ST2_3_SZ0_0_1_3_P3_12_5_17_A0_0_C0_0_AN-3.47_0.76_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e58_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_2_1 adversarial
+episode_id: 67
+record/test/D083020_0511080_0_F8_E4_G['LMO', 1, 1, 1]_['LMO', 1, 2, 1]_ST2_2_SZ0_0_2_3_P11_0_17_3_A0_0_C0_0_AN-1.6_3.9_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e68_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_2_1 LMO_1_2_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_1_1 LMO_1_2_1 adversarial
+episode_id: 68
+record/test/D083020_0559480_0_F8_E18_G['LMO', 1, 3, 1]_['LMO', 1, 3, 1]_ST1_2_SZ2_2_2_0_P7_3_10_13_A0_0_C0_0_AN3.85_4.25_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e91_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+episode_id: 69
+record/test/D083020_0623080_0_F8_E20_G['LMO', 1, 1, 1]_['LMO', 1, 1, 1]_ST1_0_SZ1_0_1_0_P4_17_17_7_A0_0_C0_0_AN1.71_-5.99_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e4_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_1_1 LMO_1_1_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_1_1 LMO_1_1_1 friendly
+episode_id: 70
+record/test/D083020_0659520_0_F8_E17_G['LMA', 0, 0, 1]_['LMO', 1, 3, 1]_ST2_1_SZ0_2_3_0_P5_16_7_6_A0_0_C0_0_AN-4.52_4.78_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e78_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_0_1 LMO_1_3_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_0_1 LMO_1_3_1 neutral
+episode_id: 71
+record/test/D083020_0729230_0_F8_E21_G['LMA', 0, 0, 1]_['LMO', 1, 0, 1]_ST2_2_SZ0_0_2_0_P7_1_16_12_A0_0_C0_0_AN-3.72_4.54_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e35_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_0_1 LMO_1_0_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_0_1 LMO_1_0_1 neutral
+episode_id: 72
+record/test/D083020_0749150_0_F8_E14_G['LMO', 0, 1, 1]_['LMA', 1, 3, 1]_ST3_1_SZ0_0_0_3_P11_16_10_12_A0_0_C0_0_AN1.04_-2.64_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e37_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_1 LMA_1_3_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMO_0_1_1 LMA_1_3_1 neutral
+episode_id: 73
+record/test/D083020_0854180_0_F8_E0_G['LMO', 0, 0, 1]_['LMO', 0, 0, 1]_ST2_0_SZ1_0_1_3_P2_6_7_15_A0_0_C0_0_AN3.99_6.14_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e3_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 friendly
+episode_id: 74
+record/test/D083020_0942100_0_F8_E7_G['LMO', 0, 0, 1]_['LMO', 0, 0, 1]_ST3_0_SZ2_0_0_3_P5_6_6_3_A0_0_C0_0_AN-2.24_4.06_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e16_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_3_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_0_1 friendly
+episode_id: 75
+record/test/D083020_0950460_0_F8_E6_G['LMO', 0, 2, 1]_['LMA', 1, 1, 1]_ST1_1_SZ0_0_1_1_P5_1_5_0_A0_0_C0_0_AN4.58_0.05_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e53_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_2_1 LMA_1_1_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMA_1_1_1 neutral
+episode_id: 76
+record/test/D083020_1021040_0_F8_E20_G['LMO', 0, 3, 1]_['LMO', 0, 3, 1]_ST2_2_SZ0_0_0_1_P11_2_4_3_A0_0_C0_0_AN2.22_-5.79_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e9_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+episode_id: 77
+record/test/D083020_1029100_0_F8_E16_G['LMO', 0, 0, 1]_['LMO', 0, 1, 1]_ST3_2_SZ0_0_0_2_P0_10_3_11_A0_0_C0_0_AN4.78_-2.12_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e82_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_-1 LMO_0_1_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_0_1_1 adversarial
+episode_id: 78
+record/test/D083020_1036240_0_F8_E2_G['LMA', 0, 1, 1]_['LMA', 1, 2, 1]_ST2_0_SZ3_3_3_3_P17_3_16_5_A0_0_C0_0_AN-4.53_-5.86_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e34_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_1_1 LMA_1_2_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_1_1 LMA_1_2_1 neutral
+episode_id: 79
+record/test/D083020_1209270_0_F8_E18_G['LMO', 0, 1, 1]_['LMA', 1, 2, 1]_ST2_3_SZ0_1_0_1_P12_12_1_17_A0_0_C0_0_AN-2.25_-2.31_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e79_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_1_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMO_0_1_1 LMA_1_2_1 neutral
+episode_id: 80
+record/test/D083020_1225420_0_F8_E2_G['LMA', 0, 2, 1]_['LMA', 1, 3, 1]_ST1_2_SZ3_2_1_1_P0_10_1_14_A0_0_C0_0_AN-4.98_6.22_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e49_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_2_1 LMA_1_2_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMA_0_2_1 LMA_1_3_1 neutral
+episode_id: 81
+record/test/D083020_1308280_0_F8_E7_G['LMO', 0, 0, 1]_['LMO', 1, 1, 1]_ST2_3_SZ1_0_1_3_P7_5_12_17_A0_0_C0_0_AN-2.59_-2.82_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e66_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_1_1_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMO_0_0_1 LMO_1_1_1 neutral
+episode_id: 82
+record/test/D083020_1457490_0_F8_E12_G['LMO', 0, 3, 1]_['LMO', 0, 3, 1]_ST3_3_SZ0_0_0_0_P5_16_10_7_A0_0_C0_0_AN-5.15_2.21_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e13_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+episode_id: 83
+record/test/D083020_1519320_0_F8_E8_G['LMO', 0, 2, 1]_['LMO', 0, 2, 1]_ST1_1_SZ0_0_2_2_P10_14_11_16_A0_0_C0_0_AN1.0_5.99_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e15_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+episode_id: 84
+record/test/D083020_1524480_0_F8_E18_G['LMA', 0, 3, 1]_['LMA', 1, 2, 1]_ST1_3_SZ0_2_3_0_P17_4_12_0_A0_0_C0_0_AN0.55_2.8_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e63_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMA_0_3_1 LMA_1_2_1 neutral
+ground-truth (goal 1, goal 2, relation):
+LMA_0_3_1 LMA_1_2_1 neutral
+episode_id: 85
+record/test/D083020_1857420_0_F8_E10_G['LMO', 1, 0, 1]_['LMO', 1, 1, 1]_ST3_2_SZ0_0_2_0_P17_3_13_3_A0_0_C0_0_AN-0.61_5.72_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e77_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_0_1 LMO_1_1_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_1_0_1 LMO_1_1_1 adversarial
+episode_id: 86
+record/test/D083020_1940020_0_F8_E15_G['LMO', 1, 3, 1]_['LMO', 1, 3, 1]_ST3_1_SZ0_2_2_0_P7_15_10_17_A0_0_C0_0_AN-0.07_3.58_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e2_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+episode_id: 87
+record/test/D083020_1956460_0_F8_E16_G['TE', 0, 1, 1]_['TE', 0, 1, -1]_ST1_3_SZ0_3_1_0_P7_3_15_16_A0_0_C0_0_AN-2.36_5.82_MCTS_L100_R0.0_-10.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e7_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+episode_id: 88
+record/test/D083120_0022510_0_F8_E4_G['LMO', 0, 3, 1]_['LMO', 0, 3, 1]_ST2_0_SZ0_0_1_3_P2_7_17_13_A0_0_C0_0_AN-3.53_6.13_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e6_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+episode_id: 89
+record/test/D083120_0023050_0_F8_E7_G['LMO', 0, 1, 1]_['LMO', 0, 3, 1]_ST3_3_SZ2_0_0_2_P12_6_6_12_A0_0_C0_0_AN-1.97_-3.5_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e22_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_1_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_3_1 adversarial
+episode_id: 90
+record/test/D083120_0119010_0_F8_E21_G['LMO', 1, 3, 1]_['LMO', 1, 3, 1]_ST1_3_SZ2_2_0_0_P1_11_1_0_A0_0_C0_0_AN-3.43_-4.83_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e8_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_3_1 friendly
+episode_id: 91
+record/test/D083120_0352580_0_F8_E16_G['LMO', 0, 1, 1]_['LMO', 0, 1, 1]_ST3_3_SZ3_0_1_0_P10_6_3_11_A0_0_C0_0_AN6.22_2.88_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e14_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_1_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_1_1 friendly
+episode_id: 92
+record/test/D083120_0715040_0_F8_E15_G['LMO', 1, 2, 1]_['LMO', 1, 2, 1]_ST2_2_SZ1_3_0_0_P2_6_1_2_A0_0_C0_0_AN-1.11_-6.17_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e12_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_2_1 LMO_1_2_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_1_2_1 LMO_1_2_1 friendly
+episode_id: 93
+record/test/D083120_0901470_0_F8_E6_G['LMO', 0, 2, 1]_['LMO', 0, 2, 1]_ST3_0_SZ3_0_3_2_P7_4_16_6_A0_0_C0_0_AN2.05_3.72_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e1_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_3_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_0_2_1 LMO_0_2_1 friendly
+episode_id: 94
+record/test/D083120_1331490_0_F8_E14_G['LMO', 0, 3, 1]_['LMO', 0, 3, 1]_ST3_2_SZ1_3_0_3_P1_3_1_0_A0_0_C0_0_AN-4.48_-5.73_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e5_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+episode_id: 95
+record/test/D083120_1954500_0_F8_E13_G['LMO', 0, 3, 1]_['LMO', 0, 3, 1]_ST3_3_SZ2_3_0_1_P6_11_7_13_A0_0_C0_0_AN3.65_4.45_MCTS_L100_R10.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e11_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+ground-truth (goal 1, goal 2, relation):
+LMO_0_3_1 LMO_0_3_1 friendly
+episode_id: 96
+record/test/D090120_1849520_0_F8_E4_G['LMO', 1, 3, 1]_['LMO', 1, 0, 1]_ST1_3_SZ0_0_1_0_P7_14_13_6_A0_0_C0_0_AN-0.09_-2.71_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e11_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_1_0_1 LMO_1_0_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_1_3_1 LMO_1_0_1 adversarial
+episode_id: 97
+record/test/D090220_0310200_0_F8_E18_G['LMO', 0, 1, 1]_['LMO', 0, 3, 1]_ST2_3_SZ0_0_0_3_P2_0_6_3_A0_0_C0_0_AN3.25_6.21_MCTS_L100_R0.0_0.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e2_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+LMO_0_0_-1 LMO_0_0_1 adversarial
+ground-truth (goal 1, goal 2, relation):
+LMO_0_1_1 LMO_0_3_1 adversarial
+episode_id: 98
+record/test/D090220_1953260_0_F8_E9_G['TE', 0, 1, 1]_['TE', 0, 1, -1]_ST3_1_SZ3_3_3_2_P12_0_11_0_A0_0_C0_0_AN5.51_2.29_MCTS_L100_R0.0_-10.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e0_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+episode_id: 99
+record/test/D090320_0628530_0_F8_E13_G['TE', 0, 1, 1]_['TE', 0, 1, -1]_ST1_3_SZ0_0_3_3_P14_7_10_14_A0_0_C0_0_AN3.83_2.47_MCTS_L100_R0.0_-10.0_PL1_EL1_0_0_s1000_r10_cI1.25_cB1000_e1_prob_10_0.pik
+inference (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+ground-truth (goal 1, goal 2, relation):
+TE_0_1_1 TE_0_1_-1 adversarial
+goal accuracy top-1: 0.855
+goal accuracy top-2: 0.895
+goal accuracy top-3: 0.925
+relation accuracy: 0.9
