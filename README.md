@@ -82,8 +82,6 @@ SocialGNN_Generating_Plots_Github.ipynb
 ```
 <!--- ## Repository Components --->
 
-## To Be Added Soon
-- Data Preprocessing files
 
 ## Citation
 ```
