@@ -14,6 +14,6 @@
   #### Preprocessing for VGG19 + Linear Layer Model
   ```
   conda activate gnnEnv2 (contains opencv)
-  python PCA_on_features_vgg19full.py "features"
-  python PCA_on_features_vgg19full.py "pca"
+  python PCA_on_features_vgg19full.py features
+  python PCA_on_features_vgg19full.py pca
 
