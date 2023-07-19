@@ -9,7 +9,9 @@ import cv2
 import os
 import pandas as pd
 
-mode = "pca" #or "features"
+import sys
+
+mode = sys.argv[1]
 
 if mode == "features":
 	def reshape_patches(x):
