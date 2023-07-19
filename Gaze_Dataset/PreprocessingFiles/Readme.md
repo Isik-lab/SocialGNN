@@ -1,4 +1,4 @@
-#### To Preprocess Again
+#### Preprocessing for SocialGNN and VisualRNN models
 ```
 conda activate gnnEnv2 (contains opencv)
 python get_patches.py
@@ -12,6 +12,7 @@ This last command processes only 100 videos at a time, so to process all - run t
 
 
 #### Preprocessing for VGG19 + Linear Layer Model
+(This model takes pixel information from the entire frame for each frame, and projected on to 1500 principal components)
 ```
 conda activate gnnEnv2 (contains opencv)
 python PCA_on_features_vgg19full.py features
