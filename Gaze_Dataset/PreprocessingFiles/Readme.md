@@ -10,3 +10,10 @@
   ```
   This last command processes only 100 videos at a time, so to process all - run thrice with 0, 100, 200
 
+
+  #### Preprocessing for VGG19 + Linear Layer Model
+  ```
+  conda activate gnnEnv2 (contains opencv)
+  python PCA_on_features_vgg19full.py "features"
+  python PCA_on_features_vgg19full.py "pca"
+
