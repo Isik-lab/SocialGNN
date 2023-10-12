@@ -1,7 +1,5 @@
-<img src="icon.png" align="right" />
-
 # SocialGNN: A Graph Neural Network model for Social Interaction Recognition 
-
+[![DOI](https://zenodo.org/badge/561537272.svg)](https://zenodo.org/badge/latestdoi/561537272)
 <!--
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) ![Progress](https://progress-bar.dev/85/?title=completed) -->
 
