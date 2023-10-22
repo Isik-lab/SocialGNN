@@ -75,6 +75,7 @@ python VGG19full_traintest_gaze.py --mode=test --dataset=5Jun23 --output_type=2
 ```
 
 #### Colab Notebook for Plots
+Note: may need to run this outside gnnEnv conda environment
 ```
 SocialGNN_Generating_Plots_Github.ipynb
 ```
