@@ -50,6 +50,7 @@ python SocialGNN_get_activations.py --model_name=SocialGNN_E --context_info=True
 python SocialGNN_get_activations.py --model_name=SocialGNN_E --context_info=True --dataset=generalization_set --train_datetime=20230515 --activation_type=RNN
 ```
 ###### Creating RDMs and RSA
+Note: motion energy files need to be downloaded into 'Activations' from OSF folder
 ```
 RSA_Github.ipynb
 ```
@@ -75,7 +76,8 @@ python VGG19full_traintest_gaze.py --mode=test --dataset=5Jun23 --output_type=2
 ```
 
 #### Colab Notebook for Plots
-Note: may need to run this outside gnnEnv conda environment
+Note 1: may need to run this outside gnnEnv conda environment
+Note 2: need to download original .pik files from the PHASE dataset to rerun all
 ```
 SocialGNN_Generating_Plots_Github.ipynb
 ```
